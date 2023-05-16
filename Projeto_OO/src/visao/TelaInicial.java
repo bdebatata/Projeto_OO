@@ -3,26 +3,37 @@ package visao;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
 
 public class TelaInicial extends JFrame{
-	
-	private JLabel label = new JLabel();
-	private ImageIcon iconLateral;
-	private Border borda;
 	//Componentes do Menu
-	private JPanel panelMenu = new PanelArredondado(30);
+	private JPanel panelMenu = new JPanel();
 	private JLabel labelMenu = new JLabel();
+	private JButton cadButton = new JButton("Cadastro de Produtos");
+	private JButton delButton = new JButton("Deletar um produto");
+	private JButton readButton = new JButton("Produtos Cadastrados");
+	private JButton upButton = new JButton("Atualizar dados de um produto");
 	
 	// Componentes da Lateral
-	private JPanel panelLateral = new PanelArredondado(30);
+	private JPanel panelLateral = new JPanel();
 	private JLabel labelLateral = new JLabel();
+	private ImageIcon iconLateral;
+	// Telas 
+	private JPanel cadPanel = new PanelCadastro();
+	private JPanel delPanel = new PanelDelete();
+	private JPanel readPanel = new PanelRead();
+	private JPanel upPanel = new PanelUpdate();
+	private List<JPanel> telas = new ArrayList<>();
+
 	public TelaInicial() {
 		//Definições básicas da tela 
 		this.setLayout(null);
@@ -30,22 +41,36 @@ public class TelaInicial extends JFrame{
 		this.setTitle("Gerência De Estoque");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().setBackground(new Color(222, 184, 135));
+		// Adições das telas
+		telas.add(panelLateral);
+		telas.add(cadPanel);
+		telas.add(delPanel);
+		telas.add(readPanel);
+		telas.add(upPanel);
 		
 		// Componente Label do Menu
 		labelMenu.setText("Menu");
 		labelMenu.setFont(new Font("Impact", Font.BOLD, 70));
 		labelMenu.setVerticalTextPosition(JLabel.TOP);
+		labelMenu.setHorizontalTextPosition(JLabel.CENTER);
+		
 		
 		// Panel de controle do Menu
 		panelMenu.setBackground(new Color(148, 103, 97));
-		panelMenu.setBounds(40, 40, 400, 730);
+		panelMenu.setLayout(new BoxLayout(panelMenu, BoxLayout.PAGE_AXIS));
+		panelMenu.setBounds(0, 0, 400, 850);
 		panelMenu.add(labelMenu);
+		panelMenu.add(cadButton);
+		panelMenu.add(delButton);
+		panelMenu.add(readButton);
+		panelMenu.add(upButton);
 		this.add(panelMenu);
+		
 		// Componente Label da Lateral
 		labelLateral.setText("Gerência De Estoque");
 		iconLateral = new ImageIcon(getClass().getResource("/visao/resources/estoque.png"));
 		labelLateral.setIcon(iconLateral);
-		labelLateral.setHorizontalAlignment(JLabel.CENTER);
+		labelLateral.setHorizontalAlignment(JLabel.LEFT);
 		labelLateral.setVerticalAlignment(JLabel.CENTER);
 		labelLateral.setIconTextGap(-270);
 		labelLateral.setFont(new Font("Impact", Font.BOLD, 50));
@@ -53,24 +78,59 @@ public class TelaInicial extends JFrame{
 		
 		// Panel de Controle da Lateral
 		panelLateral.setBackground(new Color(255, 222, 173));
-		panelLateral.setBounds(460, 40, 990, 730);
+		panelLateral.setBounds(410, 10, 1065, 793);
 		panelLateral.setLayout(new BorderLayout());
 		panelLateral.add(labelLateral);
-		this.add(panelLateral);
-		
-		
-		/*label.setText("Gerência de Estoque");
-		logo = new ImageIcon(getClass().getResource("/visao/resources/estoque.png"));
-		label.setIcon(logo);
-		label.setHorizontalAlignment(JLabel.CENTER);
-		label.setHorizontalTextPosition(JLabel.CENTER);
-		label.setVerticalTextPosition(JLabel.BOTTOM);
-		label.setFont(new Font("", Font.BOLD, 70));
-		label.setIconTextGap(-50);
-		borda = BorderFactory.createLineBorder(new Color(222,184,135),40);
-		label.setBorder(borda);
-		this.add(label);*/
-		
+		panelLateral.setVisible(true);
+		// Ativação das telas
+		AtivaTelas();
+		// Ações dos botões
+		cadButton.addActionListener(
+				e->{
+				for(JPanel c : telas ) {
+					if(c instanceof PanelCadastro) {
+						c.setVisible(true);
+					}else
+						c.setVisible(false);
+					
+				};});
+		delButton.addActionListener(
+				e->{
+					for(JPanel c : telas ) {
+						if(c instanceof PanelDelete) {
+							c.setVisible(true);
+						}else
+							c.setVisible(false);
+				}});
+		readButton.addActionListener(
+				e->{
+					for(JPanel c: telas) {
+						if(c instanceof PanelRead) {
+							c.setVisible(true);
+						} else
+							c.setVisible(false);
+					}
+				}
+				);
+		upButton.addActionListener(
+				e->{
+					for(JPanel c : telas ) {
+						if(c instanceof PanelUpdate) {
+							c.setVisible(true);
+						}else
+							c.setVisible(false);
+					}
+				}
+				);
 		this.setVisible(true);
+	}
+	
+	
+	private void AtivaTelas() {
+		for(JPanel c : telas ) {
+			this.add(c);
+			c.setVisible(false);
+		}
+		panelLateral.setVisible(true);
 	}
 }
