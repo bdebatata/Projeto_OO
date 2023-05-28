@@ -2,16 +2,19 @@ package visao;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 
 public class TelaInicial extends JFrame{
@@ -22,7 +25,8 @@ public class TelaInicial extends JFrame{
 	private JButton delButton = new JButton("Deletar um produto");
 	private JButton readButton = new JButton("Produtos Cadastrados");
 	private JButton upButton = new JButton("Atualizar dados de um produto");
-	
+	private JTextField searchBar = new JTextField();
+	private JButton searchButton = new JButton("Pesquisar");
 	// Componentes da Lateral
 	private JPanel panelLateral = new JPanel();
 	private JLabel labelLateral = new JLabel();
@@ -36,7 +40,7 @@ public class TelaInicial extends JFrame{
 
 	public TelaInicial() {
 		//Definições básicas da tela 
-		this.setLayout(null);
+		
 		this.setSize(1500, 850);
 		this.setTitle("Gerência De Estoque");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,18 +56,48 @@ public class TelaInicial extends JFrame{
 		labelMenu.setText("Menu");
 		labelMenu.setFont(new Font("Impact", Font.BOLD, 70));
 		labelMenu.setVerticalTextPosition(JLabel.TOP);
+		labelMenu.setAlignmentX(CENTER_ALIGNMENT);
 		labelMenu.setHorizontalTextPosition(JLabel.CENTER);
-		
-		
+
 		// Panel de controle do Menu
 		panelMenu.setBackground(new Color(148, 103, 97));
-		panelMenu.setLayout(new BoxLayout(panelMenu, BoxLayout.PAGE_AXIS));
+		panelMenu.setLayout(new BoxLayout(panelMenu, BoxLayout.Y_AXIS));
 		panelMenu.setBounds(0, 0, 400, 850);
-		panelMenu.add(labelMenu);
-		panelMenu.add(cadButton);
-		panelMenu.add(delButton);
-		panelMenu.add(readButton);
-		panelMenu.add(upButton);
+		
+		// Adição dos botões e espaçamento entre eles
+        panelMenu.add(labelMenu);
+        panelMenu.add(Box.createVerticalStrut(10)); 
+        panelMenu.add(searchBar);
+        panelMenu.add(Box.createVerticalStrut(5));
+        panelMenu.add(searchButton);
+        panelMenu.add(Box.createVerticalStrut(5));
+        panelMenu.add(cadButton);
+        panelMenu.add(Box.createVerticalStrut(5));
+        panelMenu.add(delButton);
+        panelMenu.add(Box.createVerticalStrut(5));
+        panelMenu.add(readButton);
+        panelMenu.add(Box.createVerticalStrut(5));
+        panelMenu.add(upButton);
+        panelMenu.add(Box.createVerticalGlue());
+        
+		// centralização dos botões
+		cadButton.setAlignmentX(0.5f);
+		delButton.setAlignmentX(0.5f);
+		readButton.setAlignmentX(0.5f);
+		upButton.setAlignmentX(0.5f);
+		searchButton.setAlignmentX(0.5f);
+		// Alterando a cor dos botões
+		cadButton.setBackground(new Color(255, 222, 173));
+		cadButton.setMaximumSize(new Dimension(200, 150));
+		delButton.setBackground(new Color(255, 222, 173));
+		delButton.setMaximumSize(new Dimension(200, 150));
+		readButton.setBackground(new Color(255, 222, 173));
+		readButton.setMaximumSize(new Dimension(200, 150));
+		upButton.setBackground(new Color(255, 222, 173));
+		upButton.setMaximumSize(new Dimension(200, 150));
+		searchButton.setBackground(new Color(255, 222, 173));
+		searchButton.setMaximumSize(new Dimension(200, 150));
+		searchBar.setMaximumSize(new Dimension(200, 150));
 		this.add(panelMenu);
 		
 		// Componente Label da Lateral

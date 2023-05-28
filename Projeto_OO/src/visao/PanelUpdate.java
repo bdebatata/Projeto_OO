@@ -11,8 +11,8 @@ public class PanelUpdate extends JPanel {
 	private JLabel upt = new JLabel();
 	PanelUpdate(){
 		setBackground(new Color(255, 222, 173));
-		setBounds(410, 10, 1065, 793);
 		setLayout(new BorderLayout());
+		setBounds(410, 10, 1065, 793);
 		upt.setText("Atualização de dados");
 		upt.setHorizontalAlignment(JLabel.CENTER);
 		upt.setVerticalAlignment(JLabel.NORTH);
