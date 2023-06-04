@@ -16,8 +16,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controlador.ControleDados;
+
 
 public class TelaInicial extends JFrame{
+	private ControleDados dados;
 	//Componentes do Menu
 	private JPanel panelMenu = new JPanel();
 	private JLabel labelMenu = new JLabel();
@@ -32,15 +35,17 @@ public class TelaInicial extends JFrame{
 	private JLabel labelLateral = new JLabel();
 	private ImageIcon iconLateral;
 	// Telas 
-	private JPanel cadPanel = new PanelCadastro();
-	private JPanel delPanel = new PanelDelete();
+	private JPanel cadPanel;
+	private JPanel delPanel;
 	private JPanel readPanel = new PanelRead();
 	private JPanel upPanel = new PanelUpdate();
 	private List<JPanel> telas = new ArrayList<>();
 
-	public TelaInicial() {
+	public TelaInicial(ControleDados dados) {
 		//Definições básicas da tela 
-		
+		this.dados = dados;
+		cadPanel = new PanelCadastro(dados);
+		delPanel = new PanelDelete(dados);
 		this.setSize(1500, 850);
 		this.setTitle("Gerência De Estoque");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -156,6 +161,7 @@ public class TelaInicial extends JFrame{
 					}
 				}
 				);
+		
 		this.setVisible(true);
 	}
 	

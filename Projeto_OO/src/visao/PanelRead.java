@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 
 public class PanelRead extends JPanel {
@@ -19,5 +20,8 @@ public class PanelRead extends JPanel {
 		read.setFont(new Font("Impact", Font.BOLD, 50));
 		read.setHorizontalTextPosition(JLabel.RIGHT);
 		add(read);
+		// Uso do JList!!!!!!!!!
+		JList lista = new JList();
+		
 	}
 }
