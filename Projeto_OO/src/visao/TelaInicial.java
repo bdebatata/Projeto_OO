@@ -37,7 +37,7 @@ public class TelaInicial extends JFrame{
 	// Telas 
 	private JPanel cadPanel;
 	private JPanel delPanel;
-	private JPanel readPanel = new PanelRead();
+	private JPanel readPanel;
 	private JPanel upPanel = new PanelUpdate();
 	private List<JPanel> telas = new ArrayList<>();
 
@@ -45,6 +45,11 @@ public class TelaInicial extends JFrame{
 		//Definições básicas da tela 
 		this.dados = dados;
 		cadPanel = new PanelCadastro(dados);
+		delPanel = new PanelDelete(dados);
+		readPanel = new PanelRead(dados);
+		
+		// teste
+		
 		delPanel = new PanelDelete(dados);
 		this.setSize(1500, 850);
 		this.setTitle("Gerência De Estoque");

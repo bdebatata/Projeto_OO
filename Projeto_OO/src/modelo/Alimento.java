@@ -11,6 +11,7 @@ public class Alimento extends Produto{
 	
 	public Alimento(String nome, double preco, int qtd, int cod, String marca, Date dataDeValidade, double peso) {
 		super(nome, preco, qtd, cod, marca);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		this.dataDeValidade = dataDeValidade;
 		this.peso = peso;
 	}
@@ -27,6 +28,9 @@ public class Alimento extends Produto{
 	}
 	public void setPeso(double peso) {
 		this.peso = peso;
+	}
+	public SimpleDateFormat getSdf() {
+		return sdf;
 	}
 	@Override
 	public String toString() {
