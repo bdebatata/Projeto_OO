@@ -28,17 +28,17 @@ public class TelaInicial extends JFrame{
 	private JButton delButton = new JButton("Deletar um produto");
 	private JButton readButton = new JButton("Produtos Cadastrados");
 	private JButton upButton = new JButton("Atualizar dados de um produto");
-	private JTextField searchBar = new JTextField();
 	private JButton searchButton = new JButton("Pesquisar");
 	// Componentes da Lateral
 	private JPanel panelLateral = new JPanel();
 	private JLabel labelLateral = new JLabel();
 	private ImageIcon iconLateral;
 	// Telas 
-	private JPanel cadPanel;
-	private JPanel delPanel;
-	private JPanel readPanel;
-	private JPanel upPanel = new PanelUpdate();
+	private PanelCadastro cadPanel;
+	private PanelDelete delPanel;
+	private PanelRead readPanel;
+	private PanelPesquisa searchPanel;
+	private PanelUpdate upPanel;
 	private List<JPanel> telas = new ArrayList<>();
 
 	public TelaInicial(ControleDados dados) {
@@ -47,10 +47,9 @@ public class TelaInicial extends JFrame{
 		cadPanel = new PanelCadastro(dados);
 		delPanel = new PanelDelete(dados);
 		readPanel = new PanelRead(dados);
-		
-		// teste
-		
+		searchPanel = new PanelPesquisa(dados);
 		delPanel = new PanelDelete(dados);
+		upPanel = new PanelUpdate(dados);
 		this.setSize(1500, 850);
 		this.setTitle("Gerência De Estoque");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,6 +60,7 @@ public class TelaInicial extends JFrame{
 		telas.add(delPanel);
 		telas.add(readPanel);
 		telas.add(upPanel);
+		telas.add(searchPanel);
 		
 		// Componente Label do Menu
 		labelMenu.setText("Menu");
@@ -76,8 +76,6 @@ public class TelaInicial extends JFrame{
 		
 		// Adição dos botões e espaçamento entre eles
         panelMenu.add(labelMenu);
-        panelMenu.add(Box.createVerticalStrut(10)); 
-        panelMenu.add(searchBar);
         panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(searchButton);
         panelMenu.add(Box.createVerticalStrut(5));
@@ -107,7 +105,7 @@ public class TelaInicial extends JFrame{
 		upButton.setMaximumSize(new Dimension(200, 150));
 		searchButton.setBackground(new Color(255, 222, 173));
 		searchButton.setMaximumSize(new Dimension(200, 150));
-		searchBar.setMaximumSize(new Dimension(200, 150));
+		
 		this.add(panelMenu);
 		
 		// Componente Label da Lateral
@@ -136,12 +134,12 @@ public class TelaInicial extends JFrame{
 						c.setVisible(true);
 					}else
 						c.setVisible(false);
-					
 				};});
 		delButton.addActionListener(
 				e->{
 					for(JPanel c : telas ) {
 						if(c instanceof PanelDelete) {
+							delPanel.passagemDados(dados);
 							c.setVisible(true);
 						}else
 							c.setVisible(false);
@@ -150,6 +148,7 @@ public class TelaInicial extends JFrame{
 				e->{
 					for(JPanel c: telas) {
 						if(c instanceof PanelRead) {
+							readPanel.passagemDados(dados);
 							c.setVisible(true);
 						} else
 							c.setVisible(false);
@@ -160,6 +159,18 @@ public class TelaInicial extends JFrame{
 				e->{
 					for(JPanel c : telas ) {
 						if(c instanceof PanelUpdate) {
+							upPanel.passagemDados(dados);
+							c.setVisible(true);
+						}else
+							c.setVisible(false);
+					}
+				}
+				);
+		searchButton.addActionListener(
+				e-> {
+					
+					for(JPanel c : telas ) {
+						if(c instanceof PanelPesquisa) {
 							c.setVisible(true);
 						}else
 							c.setVisible(false);
@@ -167,10 +178,9 @@ public class TelaInicial extends JFrame{
 				}
 				);
 		
+		
 		this.setVisible(true);
 	}
-	
-	
 	private void AtivaTelas() {
 		for(JPanel c : telas ) {
 			this.add(c);

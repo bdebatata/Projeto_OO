@@ -3,10 +3,13 @@ package visao;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -26,9 +29,9 @@ public class PanelDelete extends JPanel {
 	private JList lista;
 	private JPanel panelLista = new JPanel();
 	private DefaultListModel<String> nomesProduto = new DefaultListModel<>();
+
 	PanelDelete(ControleDados dados){
 		this.dados = dados;
-		passagemDados(dados);
 		setBackground(new Color(255, 222, 173));
 		setBounds(410, 10, 1065, 793);
 		setLayout(new BorderLayout());
@@ -196,11 +199,16 @@ public class PanelDelete extends JPanel {
 		// Atributos de Livro
 		atributos.add(genero);
 		atributos.add(qtdPag);
+		JButton delete = new JButton("Deletar");
+		delete.setFont(new Font("Impact", Font.BOLD, 30));
+		delete.setBackground(new Color(222, 184, 135));
+		delete.setBounds(100,500,300,50);
+		panelDados.add(delete);
 		lista.addListSelectionListener(
 				e->{
-					Object index = lista.getSelectedValue();
+					String s = (String) lista.getSelectedValue();
 					for(Produto p : dados.getEstoque().getProdutos()) {
-						if(p.getNome()==index) {
+						if(p.getNome()==s) {
 							nome.setText("Nome: "+ p.getNome());
 							preco.setText("Preco: R$"+p.getPreco());
 							quantidade.setText("Quantidade: "+p.getQtd());
@@ -213,6 +221,7 @@ public class PanelDelete extends JPanel {
 								atributosOff(atributos);
 								data.setVisible(true);
 								peso.setVisible(true);
+								
 							}
 							if(p instanceof Informatica) {
 								Informatica c = (Informatica) p;
@@ -223,6 +232,7 @@ public class PanelDelete extends JPanel {
 								armazenamento.setVisible(true);
 								processador.setVisible(true);
 								tamanhoTela.setVisible(true);
+								
 							}
 							if(p instanceof Vestuario) {
 								Vestuario c = (Vestuario) p;
@@ -231,6 +241,7 @@ public class PanelDelete extends JPanel {
 								atributosOff(atributos);
 								tecido.setVisible(true);
 								tamanho.setVisible(true);
+								
 							}
 							if(p instanceof Maquiagem) {
 								Maquiagem c = (Maquiagem) p;
@@ -239,6 +250,7 @@ public class PanelDelete extends JPanel {
 								atributosOff(atributos);
 								durabilidade.setVisible(true);
 								pigmentacao.setVisible(true);
+								
 							}
 							if(p instanceof Livro) {
 								Livro c = (Livro) p;
@@ -248,22 +260,46 @@ public class PanelDelete extends JPanel {
 								qtdPag.setVisible(true);
 								genero.setVisible(true);
 							}
+							delete.addActionListener(
+									k->{
+										for(Produto c: dados.getEstoque().getProdutos()) {
+											if(nome.getText().substring(6).equalsIgnoreCase(c.getNome())) {
+												Delete(c);
+												passagemDados(dados);
+												break;
+											}
+										}
+									}
+									);
 						}
 						
 					}
 				}
-		
 				);
+		
 		del.add(panelDados);
 	}
+
+	public void Delete(Produto p) {
+		dados.remove(p);
+	}
+
+	public ControleDados getDados() {
+		return dados;
+	}
+
 	public void atributosOff(List<JLabel> x) {
-		for(JLabel c: x) {
+		for (JLabel c : x) {
 			c.setVisible(false);
 		}
 	}
+
 	public void passagemDados(ControleDados x) {
+		nomesProduto.clear();
 		for (Produto p : x.getEstoque().getProdutos()) {
-            nomesProduto.addElement(p.getNome());
-        }
+			nomesProduto.addElement(p.getNome());
+		}
+
 	}
+
 }

@@ -27,7 +27,7 @@ public class PanelRead extends JPanel {
 	private DefaultListModel<String> nomesProduto = new DefaultListModel<>();
 	PanelRead(ControleDados dados){
 		this.dados = dados;
-		passagemDados(dados);
+	
 		setBackground(new Color(255, 222, 173));
 		setBounds(410, 10, 1065, 793);
 		setLayout(new BorderLayout());
@@ -213,6 +213,7 @@ public class PanelRead extends JPanel {
 										atributosOff(atributos);
 										data.setVisible(true);
 										peso.setVisible(true);
+										
 									}
 									if(p instanceof Informatica) {
 										Informatica c = (Informatica) p;
@@ -262,6 +263,7 @@ public class PanelRead extends JPanel {
 		}
 	}
 	public void passagemDados(ControleDados x) {
+		nomesProduto.clear();
 		for (Produto p : x.getEstoque().getProdutos()) {
             nomesProduto.addElement(p.getNome());
         }

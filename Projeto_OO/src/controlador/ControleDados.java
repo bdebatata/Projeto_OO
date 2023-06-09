@@ -11,6 +11,7 @@ import modelo.Estoque;
 import modelo.Informatica;
 import modelo.Livro;
 import modelo.Maquiagem;
+import modelo.Produto;
 import modelo.Vestuario;
 
 public class ControleDados {
@@ -44,6 +45,20 @@ public class ControleDados {
 	public void cadMaquiagem(String nome, double preco, int qtd, int cod, String marca, QualidadeMaterial durabilidade,
 			QualidadeMaterial pigmentacao) {
 		estoque.addProduto(new Maquiagem(nome, preco, qtd, cod, marca, durabilidade, pigmentacao));
+	}
+	public void remove(Produto p) {
+		estoque.removeProduto(p);
+	}
+	public Produto pesquisa(String nome) {
+		Produto p;
+		for(Produto x : estoque.getProdutos()) {
+			if(x.getNome().equalsIgnoreCase(nome)) {
+				p=x;
+				return p;
+			}
+		}
+		p=null;
+		return p;
 	}
 	public Estoque getEstoque() {
 		return estoque;
