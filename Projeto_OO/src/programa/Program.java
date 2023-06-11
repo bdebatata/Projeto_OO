@@ -4,10 +4,10 @@ package programa;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import controlador.ControleDados;
-import modelo.Alimento;
-import modelo.Estoque;
-import visao.TelaInicial;
+import control.ControleDados;
+import model.Alimento;
+import model.Estoque;
+import view.TelaInicial;
 
 
 public class Program {

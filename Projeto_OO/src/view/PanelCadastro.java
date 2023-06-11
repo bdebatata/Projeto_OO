@@ -1,4 +1,4 @@
-package visao;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
-import controlador.ControleDados;
+import control.ControleDados;
 import enums.GenLiterario;
 import enums.QualidadeMaterial;
 

@@ -1,4 +1,4 @@
-package visao;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,15 +16,15 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-import controlador.ControleDados;
+import control.ControleDados;
 import enums.GenLiterario;
 import enums.QualidadeMaterial;
-import modelo.Alimento;
-import modelo.Informatica;
-import modelo.Livro;
-import modelo.Maquiagem;
-import modelo.Produto;
-import modelo.Vestuario;
+import model.Alimento;
+import model.Informatica;
+import model.Livro;
+import model.Maquiagem;
+import model.Produto;
+import model.Vestuario;
 
 public class PanelUpdate extends JPanel {
 	private JLabel read = new JLabel();

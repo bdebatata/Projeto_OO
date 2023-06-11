@@ -1,4 +1,4 @@
-package modelo;
+package model;
 
 public class Vestuario extends Produto{
 	private String material;

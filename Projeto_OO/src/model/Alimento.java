@@ -1,17 +1,17 @@
-package modelo;
+package model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Alimento extends Produto{
-	static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
+	
+	private SimpleDateFormat sdf;
 	private Date dataDeValidade;
 	private double peso;
 	
 	public Alimento(String nome, double preco, int qtd, int cod, String marca, Date dataDeValidade, double peso) {
 		super(nome, preco, qtd, cod, marca);
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		sdf = new SimpleDateFormat("dd/MM/yyyy");
 		this.dataDeValidade = dataDeValidade;
 		this.peso = peso;
 	}

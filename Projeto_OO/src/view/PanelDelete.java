@@ -1,4 +1,4 @@
-package visao;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,13 +15,13 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import controlador.ControleDados;
-import modelo.Alimento;
-import modelo.Informatica;
-import modelo.Livro;
-import modelo.Maquiagem;
-import modelo.Produto;
-import modelo.Vestuario;
+import control.ControleDados;
+import model.Alimento;
+import model.Informatica;
+import model.Livro;
+import model.Maquiagem;
+import model.Produto;
+import model.Vestuario;
 
 public class PanelDelete extends JPanel {
 	private JLabel del = new JLabel();

@@ -1,4 +1,4 @@
-package visao;
+package view;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -10,13 +10,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import controlador.ControleDados;
-import modelo.Alimento;
-import modelo.Informatica;
-import modelo.Livro;
-import modelo.Maquiagem;
-import modelo.Produto;
-import modelo.Vestuario;
+import control.ControleDados;
+import model.Alimento;
+import model.Informatica;
+import model.Livro;
+import model.Maquiagem;
+import model.Produto;
+import model.Vestuario;
 
 public class PanelPesquisa extends JPanel {
 	private JLabel pes = new JLabel();

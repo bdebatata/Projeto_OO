@@ -1,4 +1,4 @@
-package controlador;
+package control;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -6,13 +6,13 @@ import java.util.Date;
 
 import enums.GenLiterario;
 import enums.QualidadeMaterial;
-import modelo.Alimento;
-import modelo.Estoque;
-import modelo.Informatica;
-import modelo.Livro;
-import modelo.Maquiagem;
-import modelo.Produto;
-import modelo.Vestuario;
+import model.Alimento;
+import model.Estoque;
+import model.Informatica;
+import model.Livro;
+import model.Maquiagem;
+import model.Produto;
+import model.Vestuario;
 
 public class ControleDados {
 	static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

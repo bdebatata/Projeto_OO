@@ -1,4 +1,4 @@
-package visao;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import controlador.ControleDados;
+import control.ControleDados;
 
 
 public class TelaInicial extends JFrame{
