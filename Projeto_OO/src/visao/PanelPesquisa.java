@@ -45,6 +45,7 @@ public class PanelPesquisa extends JPanel {
 	private JButton pesquisar = new JButton();
 	private JLabel situacao = new JLabel();
 	private List<JLabel> atributos = new ArrayList<>();
+	private List<JLabel> atributosBase = new ArrayList<>();
 
 	PanelPesquisa(ControleDados dados) {
 		this.dados = dados;
@@ -173,6 +174,13 @@ public class PanelPesquisa extends JPanel {
 		 * Adição dos atributos em uma lista para que possa ser melhor controlada a
 		 * visibilidade
 		 */
+		atributosBase.add(nome);
+		atributosBase.add(preco);
+		atributosBase.add(quantidade);
+		atributosBase.add(marca);
+		atributosBase.add(cod);
+		atributosBase.add(produto);
+
 		// Atributos de Alimento
 		atributos.add(data);
 		atributos.add(peso);
@@ -195,14 +203,24 @@ public class PanelPesquisa extends JPanel {
 		 */
 		pesquisar.addActionListener(e -> {
 			atributosOff(atributos);
-			if (dados.pesquisa(searchBar.getText()) != null) {
+			atributosOff(atributosBase);
+			if (dados.pesquisa(searchBar.getText()) == null) {
+				situacao.setVisible(true);
+				situacao.setText("Não encontrado!");
+			} else if (dados.pesquisa(searchBar.getText()) != null) {
 				situacao.setVisible(false);
 				Produto x = dados.pesquisa(searchBar.getText());
+				produto.setVisible(true);
 				nome.setText("Nome: " + x.getNome());
+				nome.setVisible(true);
 				preco.setText("Preço: R$" + x.getPreco());
+				preco.setVisible(true);
 				quantidade.setText("Quantidade: " + x.getQtd());
+				quantidade.setVisible(true);
 				marca.setText("Marca: " + x.getMarca());
+				marca.setVisible(true);
 				cod.setText("Código: " + x.getCod());
+				cod.setVisible(true);
 				if (x instanceof Alimento) {
 					produto.setText("Tipo do produto: Alimento");
 					Alimento c = (Alimento) x;
@@ -248,8 +266,7 @@ public class PanelPesquisa extends JPanel {
 					qtdPag.setText("Quantidade de páginas: " + c.getQtdPag());
 					qtdPag.setVisible(true);
 				}
-			} else 
-				situacao.setText("Não encontrado!");
+			}
 		});
 
 		add(searchPanel);
