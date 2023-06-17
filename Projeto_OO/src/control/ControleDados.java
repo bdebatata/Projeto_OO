@@ -1,7 +1,11 @@
 package control;
 
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 
 import enums.GenLiterario;
@@ -17,6 +21,9 @@ import model.Vestuario;
 public class ControleDados {
 	static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	private Estoque estoque = new Estoque();
+	private String pad = "dd/MM/yyyy";
+	private DateTimeFormatter format = DateTimeFormatter.ofPattern(pad);
+	
 	// Dados pré armazenados
 	public ControleDados() throws ParseException {
 		estoque.addProduto(new Alimento("Snickers", 4.99, 400, 1010, "Mars, Incorporated", sdf.parse("24/02/2024"), 90));
@@ -27,20 +34,16 @@ public class ControleDados {
 	}
 	public void cadAlimento(String nome, double preco, int qtd, int cod, String marca, Date data, double peso )  {
 		estoque.addProduto(new Alimento(nome, preco, qtd, cod, marca, data, peso));
-		System.out.println("CADASTRADO");
 	}
 	public void cadInformatica(String nome, double preco, int qtd, int cod, String marca, double tamanhoDaTela,
 			int armazenamento, String processador)  {
 		estoque.addProduto(new Informatica(nome, preco, qtd, cod, marca, tamanhoDaTela, armazenamento, processador ));
-		System.out.println("CADASTRADO");
 	}
 	public void cadVestuario(String nome, double preco, int qtd, int cod, String marca, String material, int tamanho)  {
 		estoque.addProduto(new Vestuario(nome, preco, qtd, cod, marca, material, tamanho));
-		System.out.println("CADASTRADO");
 	}
 	public void cadLivro(String nome, double preco, int qtd, int cod, String marca, GenLiterario genero, int qtdPag)  {
 		estoque.addProduto(new Livro(nome, preco, qtd, cod, marca, genero, qtdPag));
-		System.out.println("CADASTRADO");
 	}
 	public void cadMaquiagem(String nome, double preco, int qtd, int cod, String marca, QualidadeMaterial durabilidade,
 			QualidadeMaterial pigmentacao) {
@@ -63,7 +66,14 @@ public class ControleDados {
 	public Estoque getEstoque() {
 		return estoque;
 	}
-	
+	public boolean CheckData(String data) {
+		try {
+			LocalDate date = LocalDate.parse(data, format);
+			return true;
+		} catch(DateTimeParseException e){
+			return false;
+		}
+	}
 	
 }
 

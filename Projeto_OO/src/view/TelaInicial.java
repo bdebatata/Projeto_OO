@@ -110,7 +110,7 @@ public class TelaInicial extends JFrame{
 		
 		// Componente Label da Lateral
 		labelLateral.setText("Gerência De Estoque");
-		iconLateral = new ImageIcon(getClass().getResource("/visao/resources/estoque.png"));
+		iconLateral = new ImageIcon(getClass().getResource("/view/resources/estoque.png"));
 		labelLateral.setIcon(iconLateral);
 		labelLateral.setHorizontalAlignment(JLabel.LEFT);
 		labelLateral.setVerticalAlignment(JLabel.CENTER);
