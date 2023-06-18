@@ -47,7 +47,7 @@ public class PanelPesquisa extends JPanel {
 	private List<JLabel> atributos = new ArrayList<>();
 	private List<JLabel> atributosBase = new ArrayList<>();
 
-	PanelPesquisa(ControleDados dados) {
+	public PanelPesquisa(ControleDados dados) {
 		this.dados = dados;
 		setBackground(new Color(255, 222, 173));
 		setBounds(410, 10, 1065, 793);
@@ -287,4 +287,153 @@ public class PanelPesquisa extends JPanel {
 		return false;
 	}
 
+	public JTextField getSearchBar() {
+		return searchBar;
+	}
+
+	public void setSearchBar(JTextField searchBar) {
+		this.searchBar = searchBar;
+	}
+
+	public JButton getPesquisar() {
+		return pesquisar;
+	}
+
+	public void setPesquisar(JButton pesquisar) {
+		this.pesquisar = pesquisar;
+	}
+
+	public ControleDados getDados() {
+		return dados;
+	}
+
+	public JLabel getNome() {
+		return nome;
+	}
+
+	public void setNome(JLabel nome) {
+		this.nome = nome;
+	}
+
+	public JLabel getPreco() {
+		return preco;
+	}
+
+	public void setPreco(JLabel preco) {
+		this.preco = preco;
+	}
+
+	public JLabel getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(JLabel quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public JLabel getCod() {
+		return cod;
+	}
+
+	public void setCod(JLabel cod) {
+		this.cod = cod;
+	}
+
+	public JLabel getMarca() {
+		return marca;
+	}
+
+	public void setMarca(JLabel marca) {
+		this.marca = marca;
+	}
+
+	public JLabel getData() {
+		return data;
+	}
+
+	public void setData(JLabel data) {
+		this.data = data;
+	}
+
+	public JLabel getPeso() {
+		return peso;
+	}
+
+	public void setPeso(JLabel peso) {
+		this.peso = peso;
+	}
+
+	public JLabel getTamanhoTela() {
+		return tamanhoTela;
+	}
+
+	public void setTamanhoTela(JLabel tamanhoTela) {
+		this.tamanhoTela = tamanhoTela;
+	}
+
+	public JLabel getArmazenamento() {
+		return armazenamento;
+	}
+
+	public void setArmazenamento(JLabel armazenamento) {
+		this.armazenamento = armazenamento;
+	}
+
+	public JLabel getProcessador() {
+		return processador;
+	}
+
+	public void setProcessador(JLabel processador) {
+		this.processador = processador;
+	}
+
+	public JLabel getDurabilidade() {
+		return durabilidade;
+	}
+
+	public void setDurabilidade(JLabel durabilidade) {
+		this.durabilidade = durabilidade;
+	}
+
+	public JLabel getPigmentacao() {
+		return pigmentacao;
+	}
+
+	public void setPigmentacao(JLabel pigmentacao) {
+		this.pigmentacao = pigmentacao;
+	}
+
+	public JLabel getTecido() {
+		return tecido;
+	}
+
+	public void setTecido(JLabel tecido) {
+		this.tecido = tecido;
+	}
+
+	public JLabel getTamanho() {
+		return tamanho;
+	}
+
+	public void setTamanho(JLabel tamanho) {
+		this.tamanho = tamanho;
+	}
+
+	public JLabel getGenero() {
+		return genero;
+	}
+
+	public void setGenero(JLabel genero) {
+		this.genero = genero;
+	}
+
+	public JLabel getQtdPag() {
+		return qtdPag;
+	}
+
+	public void setQtdPag(JLabel qtdPag) {
+		this.qtdPag = qtdPag;
+	}
+	
+	
 }

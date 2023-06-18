@@ -26,11 +26,12 @@ import model.Vestuario;
 public class PanelDelete extends JPanel {
 	private JLabel del = new JLabel();
 	private ControleDados dados;
-	private JList lista;
-	private JPanel panelLista = new JPanel();
+	private JList<String> lista;
+	private JPanel panelLista;
+	private JPanel panelDados;
 	private DefaultListModel<String> nomesProduto = new DefaultListModel<>();
-
-	PanelDelete(ControleDados dados){
+	private JButton delete;
+	public PanelDelete(ControleDados dados){
 		this.dados = dados;
 		setBackground(new Color(255, 222, 173));
 		setBounds(410, 10, 1065, 793);
@@ -42,7 +43,7 @@ public class PanelDelete extends JPanel {
 		del.setHorizontalTextPosition(JLabel.RIGHT);
 		add(del);
 		// Panel que mostra a lista de produtos cadastrados
-		JPanel panelLista = new JPanel();
+		panelLista = new JPanel();
         panelLista.setBounds(30, 100, 500, 675);
         panelLista.setBackground(new Color(255,222, 173));
         panelLista.setLayout(null);
@@ -55,7 +56,7 @@ public class PanelDelete extends JPanel {
         del.add(panelLista);
         
         // Panel que mostra os dados do produto
-		JPanel panelDados = new JPanel();
+		panelDados = new JPanel();
 		panelDados.setLayout(null);
 		panelDados.setBounds(550, 100, 500, 657);
 		panelDados.setBackground(new Color(148, 103, 97));
@@ -199,7 +200,7 @@ public class PanelDelete extends JPanel {
 		// Atributos de Livro
 		atributos.add(genero);
 		atributos.add(qtdPag);
-		JButton delete = new JButton("Deletar");
+		delete = new JButton("Deletar");
 		delete.setFont(new Font("Impact", Font.BOLD, 30));
 		delete.setBackground(new Color(222, 184, 135));
 		delete.setBounds(100,500,300,50);
@@ -300,6 +301,22 @@ public class PanelDelete extends JPanel {
 			nomesProduto.addElement(p.getNome());
 		}
 
+	}
+
+	public JButton getDelete() {
+		return delete;
+	}
+
+	public void setDelete(JButton delete) {
+		this.delete = delete;
+	}
+
+	public JList<String> getLista() {
+		return lista;
+	}
+
+	public void setLista(JList<String> lista) {
+		this.lista = lista;
 	}
 
 }

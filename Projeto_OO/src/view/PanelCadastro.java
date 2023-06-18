@@ -397,6 +397,7 @@ public class PanelCadastro extends JPanel {
 				if (data.getText().isBlank() || peso.getText().isBlank() || data.getText().isEmpty()
 						|| peso.getText().isEmpty()) {
 					// Dados de alimento vazios
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
 				} else {
 				
 					/*
@@ -429,6 +430,7 @@ public class PanelCadastro extends JPanel {
 			if (panelVestuario.isVisible() == true) {
 				if (taman.getText().isBlank() || tec.getText().isBlank() || tec.getText().isEmpty()
 						|| taman.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
 				} else
 					// Cadastro de um Vestuario no estoque
 					dados.cadVestuario(nome.getText(), Double.parseDouble(preco.getText()), (int) quantidade.getValue(),
@@ -446,6 +448,7 @@ public class PanelCadastro extends JPanel {
 			if (panelLivro.isVisible() == true) {
 				
 				if (qtdPag.getText().isBlank() || qtdPag.getText().isEmpty() || gen.isSelectionEmpty()) {
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos ou selecione nos campos vazios!");
 				} else
 					dados.cadLivro(nome.getText(), Double.parseDouble(preco.getText()), (int) quantidade.getValue(),
 							Integer.parseInt(cod.getText()), marca.getText(),
@@ -461,7 +464,7 @@ public class PanelCadastro extends JPanel {
 			if (panelMaq.isVisible() == true) {
 				
 				if (qual.isSelectionEmpty() || dur.isSelectionEmpty()) {
-
+					JOptionPane.showMessageDialog(null, "Selecione algo nos campos vazios!");
 				} else
 					dados.cadMaquiagem(nome.getText(), Double.parseDouble(preco.getText()), (int) quantidade.getValue(),
 							Integer.parseInt(cod.getText()), marca.getText(),
@@ -477,10 +480,9 @@ public class PanelCadastro extends JPanel {
 
 			} 
 			if (panelInformatica.isVisible() == true) {
-				
 				if (tam.getText().isBlank() || proc.getText().isBlank() || armaze.getText().isBlank()
 						|| tam.getText().isEmpty() || proc.getText().isEmpty() || armaze.getText().isEmpty()) {
-
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
 				} else
 					dados.cadInformatica(nome.getText(), Double.parseDouble(preco.getText()),
 							(int) quantidade.getValue(), Integer.parseInt(cod.getText()), marca.getText(),
@@ -651,5 +653,35 @@ public class PanelCadastro extends JPanel {
 	public void setCads(List<JPanel> cads) {
 		this.cads = cads;
 	}
-
+	public JButton getAlimento() {
+		return alimento;
+	}
+	public void setAlimento(JButton alimento) {
+		this.alimento = alimento;
+	}
+	public JButton getVestuario() {
+		return vestuario;
+	}
+	public void setVestuario(JButton vestuario) {
+		this.vestuario = vestuario;
+	}
+	public JButton getInformatica() {
+		return informatica;
+	}
+	public void setInformatica(JButton informatica) {
+		this.informatica = informatica;
+	}
+	public JButton getLivro() {
+		return livro;
+	}
+	public void setLivro(JButton livro) {
+		this.livro = livro;
+	}
+	public JButton getMaquiagem() {
+		return maquiagem;
+	}
+	public void setMaquiagem(JButton maquiagem) {
+		this.maquiagem = maquiagem;
+	}
+	
 }
