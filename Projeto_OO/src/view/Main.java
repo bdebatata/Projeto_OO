@@ -2,6 +2,7 @@ package view;
 
 import java.text.ParseException;
 
+
 import control.ControleDados;
 
 /**
@@ -16,7 +17,7 @@ public class Main {
 	/**
 	 * Metodo main que inicializa a TelaInicial, chamando seu construtor e passando
 	 * como parametro uma nova instancia de ControleDados, chamando o construtor da
-	 * classe ControleDados
+	 * classe ControleDados.
 	 * 
 	 * @param args
 	 * @throws ParseException

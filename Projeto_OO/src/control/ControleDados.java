@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
+import java.util.Random;
 
 import enums.GenLiterario;
 import enums.QualidadeMaterial;
@@ -30,21 +31,104 @@ public class ControleDados {
 	private Estoque estoque = new Estoque();
 	private String pad = "dd/MM/yyyy";
 	private DateTimeFormatter format = DateTimeFormatter.ofPattern(pad);
+	private Random r = new Random();
 
 	/**
-	 * Construtor da classe, onde e inicializado um produto de cada tipo possivel
+	 * Construtor da classe, onde e inicializado um produto de cada tipo possivel com seus atributos aleatorios
 	 * 
 	 * @throws ParseException
 	 */
 	public ControleDados() throws ParseException {
-		estoque.addProduto(
-				new Alimento("Snickers", 4.99, 400, 1010, "Mars, Incorporated", sdf.parse("24/02/2024"), 90));
-		estoque.addProduto(new Informatica("Nitro 5", 4999.99, 150, 101001, "Acer", 17, 512, "i7-11800H"));
-		estoque.addProduto(new Maquiagem("Linha VF", 367.5, 100, 100100, "WePink", QualidadeMaterial.valueOf("Alta"),
-				QualidadeMaterial.valueOf("Alta")));
-		estoque.addProduto(new Vestuario("Jaqueta", 2500, 15, 10100100, "Gucci", "Couro", 46));
-		estoque.addProduto(
-				new Livro("Ecce-Homo", 25, 50, 010100, "L&PM Pocket", GenLiterario.valueOf("Filosofia"), 113));
+		estoque.addProduto(new Alimento("Produto 1", Math.random() * 200, r.nextInt(101), geraCodAleatorio(),
+				"Marca do Produto 1", geraDataAleatoria(), r.nextInt(1001)));
+
+		estoque.addProduto(new Informatica("Produto 2", Math.random() * 50000, r.nextInt(101), geraCodAleatorio(),
+				"Marca do Produto 2", r.nextInt(4)+17, r.nextInt(1000), "Processador"));
+
+		estoque.addProduto(new Maquiagem("Produto 3", Math.random() * 200, r.nextInt(101), geraCodAleatorio(),
+				"Marca do Produto 3", qualidadeAleatoria(), qualidadeAleatoria()));
+
+		estoque.addProduto(new Vestuario("Produto 4", Math.random() * 2000, r.nextInt(101), geraCodAleatorio(),
+				"Marca do Produto 4", "Couro", 46));
+
+		estoque.addProduto(new Livro("Produto 5", Math.random() * 200, r.nextInt(101), geraCodAleatorio(),
+				"Marca do Produto 5", generoAleatorio(), r.nextInt(1500)));
+	}
+
+	/**
+	 * Metodo para geracao de um codigo pseudoaleatorio para ser usado
+	 * 
+	 * @return codInt Codigo aleatorio composto somente por 5 digitos entre 0 e 1
+	 */
+	public int geraCodAleatorio() {
+		StringBuilder cod = new StringBuilder();
+		for (int i = 0; i < 5; i++) {
+			int bit = r.nextInt(2);
+			cod.append(bit);
+		}
+		int codInt = Integer.parseInt(String.valueOf(cod));
+		return codInt;
+	}
+
+	/**
+	 * Metodo para geracao de uma data pseudoaleatoria para ser usada no construtor
+	 * para gerar Produtos pseudoaleatorios
+	 * 
+	 * @return dataAleatoria Data pseudoaleatoria
+	 * @throws ParseException
+	 */
+	public Date geraDataAleatoria() throws ParseException {
+		StringBuilder data = new StringBuilder();
+		StringBuilder dd = new StringBuilder();
+		StringBuilder mm = new StringBuilder();
+		int dia = r.nextInt(30) + 1;
+		int mes = r.nextInt(12) + 1;
+		int ano = r.nextInt(2040 - 2024 + 1) + 2024;
+		if (dia < 10) {
+			dd.append(0);
+			dd.append(dia);
+		} else
+			dd.append(dia);
+		if (mes < 10) {
+			mm.append(0);
+			mm.append(mes);
+		} else
+			mm.append(mes);
+		data.append(dd);
+		data.append("/");
+		data.append(mm);
+		data.append("/");
+		data.append(ano);
+		Date dataAleatoria = sdf.parse(String.valueOf(data));
+		return dataAleatoria;
+	}
+
+	/**
+	 * Metodo para geracao de um genero literario pseudoaleatorio dentre o conjunto
+	 * enumerado GenLiterario, para ser usada no construtor com dados
+	 * pseudoaleatorios
+	 * 
+	 * @return genAleatorio Genero aleatorio
+	 * @see GenLiterario
+	 */
+	public GenLiterario generoAleatorio() {
+		GenLiterario[] generos = GenLiterario.values();
+		GenLiterario genAleatorio = generos[r.nextInt(generos.length)];
+		return genAleatorio;
+	}
+
+	/**
+	 * Metodo para geracao de uma qualidade pseudoaleatoria dentre o conjunto
+	 * enumerado QualidadeMaterial, para ser usada no construtor com dados
+	 * pseudoaleatorios
+	 * 
+	 * @return qualidade Qualidade do material aleatoria
+	 * @see QualidadeMaterial
+	 */
+	public QualidadeMaterial qualidadeAleatoria() {
+		QualidadeMaterial[] qualidades = QualidadeMaterial.values();
+		QualidadeMaterial qualidade = qualidades[r.nextInt(qualidades.length)];
+		return qualidade;
 	}
 
 	/**
@@ -184,7 +268,7 @@ public class ControleDados {
 	/**
 	 * Metodo de validacao de data de validade, onde e usado um formatador do tipo
 	 * DataTimeFormatter e um parse, caso o bloco try nao retorne um erro ele
-	 * retorna true, caso contrario retorna falso 
+	 * retorna true, caso contrario retorna falso
 	 * 
 	 * @param data Data de validade a ser validada
 	 * @return booleano no qual true representa data valida e false invalida
