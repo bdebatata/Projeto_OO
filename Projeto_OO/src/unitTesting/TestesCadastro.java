@@ -11,8 +11,21 @@ import org.junit.jupiter.api.Test;
 import control.ControleDados;
 import view.PanelCadastro;
 
+/**
+ * Classe de testes do JPanel que e responsavel pelo cadastro de produtos
+ * 
+ * @author Bruno Henrique Duarte
+ * @version 1.0
+ * 
+ * @see PanelCadastro
+ * 
+ */
 public class TestesCadastro {
-	// Testes de cadastros válidos
+	/**
+	 * Teste de cadastro valido de um Livro
+	 * 
+	 * @throws ParseException
+	 */
 	@Test
 	public void cadastroLivro() throws ParseException {
 		PanelCadastro cadPanel = new PanelCadastro(new ControleDados());
@@ -29,6 +42,11 @@ public class TestesCadastro {
 		assertEquals(6, cadPanel.getDados().getEstoque().getProdutos().size());
 	}
 
+	/**
+	 * Teste de cadastro valido de um Alimento
+	 * 
+	 * @throws ParseException
+	 */
 	@Test
 	public void cadastroAlimento() throws ParseException {
 		PanelCadastro cadPanel = new PanelCadastro(new ControleDados());
@@ -45,6 +63,11 @@ public class TestesCadastro {
 		assertEquals(6, cadPanel.getDados().getEstoque().getProdutos().size());
 	}
 
+	/**
+	 * Teste de cadastro valido de Vestuario
+	 * 
+	 * @throws ParseException
+	 */
 	@Test
 	public void cadastroVestuario() throws ParseException {
 		PanelCadastro cadPanel = new PanelCadastro(new ControleDados());
@@ -61,6 +84,11 @@ public class TestesCadastro {
 		assertEquals(6, cadPanel.getDados().getEstoque().getProdutos().size());
 	}
 
+	/**
+	 * Teste de cadastro valido de Maquiagem
+	 * 
+	 * @throws ParseException
+	 */
 	@Test
 	public void cadastroMaquiagem() throws ParseException {
 		PanelCadastro cadPanel = new PanelCadastro(new ControleDados());
@@ -77,6 +105,11 @@ public class TestesCadastro {
 		assertEquals(6, cadPanel.getDados().getEstoque().getProdutos().size());
 	}
 
+	/**
+	 * Teste de cadastro valido de Informatica
+	 * 
+	 * @throws ParseException
+	 */
 	@Test
 	public void cadastroInformatica() throws ParseException {
 		PanelCadastro cadPanel = new PanelCadastro(new ControleDados());
@@ -95,6 +128,11 @@ public class TestesCadastro {
 	}
 
 	// Cadastros Inválidos
+	/**
+	 * Teste de cadastro de um produto com todas as TextFields vazias
+	 * 
+	 * @throws ParseException
+	 */
 	@Test
 	public void cadastroProdutoVazio() throws ParseException {
 		PanelCadastro cadPanel = new PanelCadastro(new ControleDados());
@@ -104,6 +142,13 @@ public class TestesCadastro {
 		assertEquals(5, cadPanel.getDados().getEstoque().getProdutos().size());
 	}
 
+	/**
+	 * Teste de cadastro de um Alimento com a data de validade inserida de forma
+	 * errada
+	 * 
+	 * @throws ParseException
+	 * @see Alimento
+	 */
 	@Test
 	public void cadastroAlimentoDataInvalida() throws ParseException {
 		PanelCadastro cadPanel = new PanelCadastro(new ControleDados());
@@ -120,6 +165,12 @@ public class TestesCadastro {
 
 	}
 
+	/**
+	 * Teste de cadastro de um Livro sem a selecao de um genero
+	 * 
+	 * @throws ParseException
+	 * @see Livro
+	 */
 	@Test
 	public void cadastroLivroSemSelect() throws ParseException {
 		PanelCadastro cadPanel = new PanelCadastro(new ControleDados());
@@ -135,6 +186,14 @@ public class TestesCadastro {
 		// Adição de um produto ao estoque, já que todas as informações são válidas
 		assertEquals(5, cadPanel.getDados().getEstoque().getProdutos().size());
 	}
+
+	/**
+	 * Teste de cadastro de uma Maquiagem sem a selecao de durabilidade de qualidade
+	 * da pigmentacao
+	 * 
+	 * @throws ParseException
+	 * @see Maquiagem
+	 */
 	@Test
 	public void cadastroMaquiagemSemSelect() throws ParseException {
 		PanelCadastro cadPanel = new PanelCadastro(new ControleDados());
@@ -145,11 +204,10 @@ public class TestesCadastro {
 		cadPanel.getCod().setText("1111101");
 		cadPanel.getMarca().setText("Glam");
 		// Sem a seleção dos dados especificos
-		
+
 		cadPanel.getCadastrar().doClick();
 		// Adição de um produto ao estoque, já que todas as informações são válidas
-		assertEquals(5
-				, cadPanel.getDados().getEstoque().getProdutos().size());
+		assertEquals(5, cadPanel.getDados().getEstoque().getProdutos().size());
 	}
 
 }

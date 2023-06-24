@@ -1,56 +1,65 @@
 package model;
+
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe responsavel por armazenar os produtos.
+ * 
+ * @author Bruno Henrique Duarte
+ * @version 1.0
+ * @see Produto
+ */
 public class Estoque {
-	
+
 	private List<Produto> produtos = new ArrayList<>();
+
+	/**
+	 * Metodo para retorno da lista onde esta sendo armazenado os Produtos
+	 * 
+	 * @return Lista de todos os produtos instanciados
+	 * @see Produto
+	 */
 	public List<Produto> getProdutos() {
 		return produtos;
 	}
-	/* Nesse caso não há o método setProdutos já que não
-	 * é pra ser possível mudar a lista que tem os produtos 
+
+	/**
+	 * Metodo no qual se insere um produto no estoque
+	 * 
+	 * @param produto Produto a ser adicionado
 	 */
-	public void addProduto(Produto x) {
-		produtos.add(x);
+	public void addProduto(Produto produto) {
+		produtos.add(produto);
 	}
-	public void removeProduto(Produto x) {
-		produtos.remove(x);
+
+	/**
+	 * Metodo no qual se remove um produto do estoque
+	 * 
+	 * @param produto Produto a ser removido
+	 */
+	public void removeProduto(Produto produto) {
+		produtos.remove(produto);
 	}
-	public void listagem() {
-		if(produtos.isEmpty() == true) {
-			System.out.print("Não há produtos cadastrados!");
-		}
-		for(Produto c : produtos) {
-			if(c instanceof Alimento) {
-				Alimento alimento = (Alimento) c;
-				System.out.println(alimento.toString());
-			}
-			if(c instanceof Informatica) {
-				Informatica informatica = (Informatica) c;
-				System.out.println(informatica.toString()); 
-			}
-			if(c instanceof Livro) {
-				Livro livro = (Livro) c;
-				System.out.println(livro.toString()); 
-			}
-			if(c instanceof Maquiagem) {
-				Maquiagem maquiagem = (Maquiagem) c;
-				System.out.println(maquiagem.toString());;
-			}
-			if(c instanceof Vestuario) {
-				Vestuario vestuario = (Vestuario) c;
-				System.out.println(vestuario.toString());;
+
+	/**
+	 * Metodo utilizado para buscar um produto no estoque, no qual se percorre um
+	 * bloco forEach comparando o nome ate se encontrar um igual
+	 * 
+	 * @param nome Nome do produto a ser buscado
+	 * @return Produto Produto null caso nao exista no estoque e se existir retorna
+	 *         o Produto encontrado
+	 *         
+	 */
+	public Produto busca(String nome) {
+		Produto p;
+		for (Produto c : produtos) {
+			if (c.getNome().equalsIgnoreCase(nome)) {
+				p = c;
+				return p;
 			}
 		}
-	}
-	
-	public void busca(String x) {
-		for (Produto c:produtos) {
-			if(c.getNome()== x) {
-				System.out.println(c.toString());
-			}
-		}
-		
+		p = null;
+		return p;
 	}
 }

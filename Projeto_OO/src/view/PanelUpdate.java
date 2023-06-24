@@ -26,6 +26,14 @@ import model.Maquiagem;
 import model.Produto;
 import model.Vestuario;
 
+/**
+ * Classe que herda de JPanel, e utilizada na classe TelaInicial como um JPanel
+ * e fica responsavel pela funcionalidade de update de dados de Produtos
+ * 
+ * @author Bruno Henrique Duarte
+ * @version 1.0
+ *
+ */
 public class PanelUpdate extends JPanel {
 	private JLabel read = new JLabel();
 	private ControleDados dados;
@@ -34,6 +42,14 @@ public class PanelUpdate extends JPanel {
 	private JButton update = new JButton("Update");
 	private DefaultListModel<String> nomesProduto = new DefaultListModel<>();
 
+	/**
+	 * Construtor da classe, adiciona todos os componentes ao JPanel e implementa a
+	 * logica de update utilizando de uma JList para se selecionar o produto a ser
+	 * alterado, disponibilizando seus dados junto a TextFields que quando alterado
+	 * e utilizado o botao de update salva esses dados.
+	 * 
+	 * @param dados Dados que serao passado pela TelaInicial
+	 */
 	PanelUpdate(ControleDados dados) {
 		this.dados = dados;
 		setBackground(new Color(255, 222, 173));
@@ -563,12 +579,11 @@ public class PanelUpdate extends JPanel {
 									}
 								}
 						}
-						
+
 					});
 				}
 			}
 		});
-
 		read.add(panelDados);
 	}
 
@@ -576,18 +591,36 @@ public class PanelUpdate extends JPanel {
 		return dados;
 	}
 
-	public void atributosOff(List<JLabel> x) {
-		for (JLabel c : x) {
+	/**
+	 * Metodo que altera para falso a visibilidade de todos os JLabels contidos na
+	 * lista, que servem como rotulos.
+	 * 
+	 * @param listJLabel Lista que contem todas as JLabels.
+	 */
+	public void atributosOff(List<JLabel> listJLabel) {
+		for (JLabel c : listJLabel) {
 			c.setVisible(false);
 		}
 	}
 
-	public void upatributosOff(List<JTextField> x) {
-		for (JTextField c : x) {
+	/**
+	 * Metodo que altera para falso a visibilidade de todos os JTextFields contidos
+	 * na lista, que servem para o update de dados
+	 * 
+	 * @param listJText Lista de TextFields
+	 */
+	public void upatributosOff(List<JTextField> listJText) {
+		for (JTextField c : listJText) {
 			c.setVisible(false);
 		}
 	}
-
+	/**
+	 * Metodo de passagem de dados, limpa a JList e adiciona todos os nomes de
+	 * produtos contidos na lista que se obtem a partir do ControleDados
+	 * 
+	 * @param dados ControleDados que se obteve com o construtor da classe
+	 * @see ControleDados
+	 */
 	public void passagemDados(ControleDados x) {
 		nomesProduto.clear();
 		for (Produto p : x.getEstoque().getProdutos()) {

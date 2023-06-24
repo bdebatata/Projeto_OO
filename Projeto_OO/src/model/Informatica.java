@@ -1,10 +1,28 @@
 package model;
-
+/**
+ * A classe informatica herda de Produto e serve como especializacao.
+ * 
+ * @author Bruno Henrique Duarte
+ * @version 1.0
+ * 		
+ */
 public class Informatica extends Produto {
 	private double tamanhoDaTela;
 	private int armazenamento;
 	private String processador;
-	
+	/**
+	 * Construtor da classe
+	 * @param nome Strinq que representa o nome do Produto 
+	 * @param preco double que representa o preco do Produto
+	 * @param qtd int que representa a quantidade do Produto
+	 * @param cod int que representa o codigo do Produto
+	 * @param marca String que representa a marca do Produto
+	 * @param tamanhoDaTela double que representa o tamanho da tela
+	 * @param armazenamento int que representa o armazenamento 
+	 * @param processador String que representa o nome do processador
+	 * 
+	 * @see Produto
+	 */
 	public Informatica(String nome, double preco, int qtd, int cod, String marca, double tamanhoDaTela,
 			int armazenamento, String processador) {
 		super(nome, preco, qtd, cod, marca);
@@ -12,6 +30,7 @@ public class Informatica extends Produto {
 		this.armazenamento = armazenamento;
 		this.processador = processador;
 	}
+	
 	public double getTamanhoDaTela() {
 		return tamanhoDaTela;
 	}
@@ -30,11 +49,7 @@ public class Informatica extends Produto {
 	public void setProcessador(String processador) {
 		this.processador = processador;
 	}
-	@Override
-	public String toString() {
-		return "Informática: "+getNome()+ ", Processador: "+getProcessador()+", Tamanho da tela: "+getTamanhoDaTela()+" polegadas"
-				+ "\nQuantidade: "+getQtd()+", com um preço de: R$"+getPreco() +"\nTotalizando: R$"+subTotal();
-	}
+	
 	
 	
 }

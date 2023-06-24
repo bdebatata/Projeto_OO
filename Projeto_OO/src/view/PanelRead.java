@@ -19,15 +19,31 @@ import model.Livro;
 import model.Maquiagem;
 import model.Produto;
 import model.Vestuario;
-
+/**
+ * 
+ * Classe que herda de JPanel, e utilizada na classe TelaInicial como um JPanel
+ * e fica responsavel pela funcionalidade de mostrar os dados de Produtos
+ * 
+ * @author Bruno Henrique Duarte
+ * @version 1.0
+ * 
+ * @see Produto
+ * @see TelaInicial
+ *
+ */
 public class PanelRead extends JPanel {
 	private JLabel read = new JLabel();
 	private ControleDados dados;
-	private JList lista;
+	private JList<String> lista;
 	private DefaultListModel<String> nomesProduto = new DefaultListModel<>();
+	/**
+	 * Construtor da classe, adiciona todos os componentes ao JPanel e implementa
+	 * a logica de mostrar todos os dados de um selecionado Produto, onde e utilizado um JList
+	 * com todos os nomes de Produtos cadastrados.
+	 * @param dados Dados que serao passados pela TelaInicial
+	 */
 	PanelRead(ControleDados dados){
 		this.dados = dados;
-	
 		setBackground(new Color(255, 222, 173));
 		setBounds(410, 10, 1065, 793);
 		setLayout(new BorderLayout());
@@ -257,11 +273,25 @@ public class PanelRead extends JPanel {
 						);
 				read.add(panelDados);
 	}
-	public void atributosOff(List<JLabel> x) {
-		for(JLabel c: x) {
+	
+	/**
+	 * Metodo que altera para falso a visibilidade de todos os JLabels contidos na
+	 * lista
+	 * 
+	 * @param listJPanel Lista que contem JLabels
+	 */
+	public void atributosOff(List<JLabel> listJLabel) {
+		for (JLabel c : listJLabel) {
 			c.setVisible(false);
 		}
 	}
+	/**
+	 * Metodo de passagem de dados, limpa a JList e adiciona todos os nomes de
+	 * produtos contidos na lista que se obtem a partir do ControleDados
+	 * 
+	 * @param dados ControleDados que se obteve com o construtor da classe
+	 * @see ControleDados
+	 */
 	public void passagemDados(ControleDados x) {
 		nomesProduto.clear();
 		for (Produto p : x.getEstoque().getProdutos()) {

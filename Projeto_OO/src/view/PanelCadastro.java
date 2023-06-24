@@ -22,6 +22,16 @@ import control.ControleDados;
 import enums.GenLiterario;
 import enums.QualidadeMaterial;
 
+/**
+ * Classe que herda de JPanel, e utilizada na classe TelaInicial como um JPanel
+ * e fica responsavel pela funcionalidade de cadastro de Produtos
+ * 
+ * @author Bruno Henrique Duarte
+ * @version 1.0
+ * 
+ * @see Produto
+ * @see TelaInicial
+ */
 public class PanelCadastro extends JPanel {
 	static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	private JLabel cad = new JLabel();
@@ -72,18 +82,31 @@ public class PanelCadastro extends JPanel {
 
 	private GenLiterario[] generos;
 	private QualidadeMaterial[] qualidades;
+	// Panels para Cadastro
 	private JPanel panelAlimento = new JPanel();
 	private JPanel panelVestuario = new JPanel();
-	private JPanel panelInformatica= new JPanel();
-	private JPanel panelLivro= new JPanel();
-	private JPanel panelMaq= new JPanel();
-	
+	private JPanel panelInformatica = new JPanel();
+	private JPanel panelLivro = new JPanel();
+	private JPanel panelMaq = new JPanel();
+
 	// Controle de dados
 	private ControleDados dados;
-	 
+
+	/**
+	 * Construtor da classe, adiciona todos os componentes ao JPanel e implementa a
+	 * logica de cadastro, que so e permitido quando o usuario seleciona um tipo
+	 * especifico de produto, assim alterando as visibilidade do JPanel associado a tal tipo de produto e o botao de cadastro
+	 * 
+	 * @param dados Dados que serao passados pela TelaInicial
+	 * @see TelaInicial
+	 */
 	public PanelCadastro(ControleDados dados) {
 		this.dados = dados;
-		addTelas();
+		cads.add(panelMaq);
+		cads.add(panelLivro);
+		cads.add(panelInformatica);
+		cads.add(panelVestuario);
+		cads.add(panelAlimento);
 		setBackground(new Color(255, 222, 173));
 		setBounds(410, 10, 1065, 793);
 		setLayout(new BorderLayout());
@@ -172,10 +195,7 @@ public class PanelCadastro extends JPanel {
 		add(cad, BorderLayout.NORTH);
 		// Panels de controle da tela de cadastro
 
-		/*
-		 * Panel de Alimento Contém todas as informações necessárias para cadastro de um
-		 * alimento
-		 */
+		
 		panelAlimento.setName("panelAlimento");
 		panelAlimento.setBackground(new Color(255, 222, 173));
 		panelAlimento.setLayout(null);
@@ -307,7 +327,6 @@ public class PanelCadastro extends JPanel {
 		panelMaq.add(rotDur);
 		panelMaq.add(durabilidade);
 
-		
 		panelAlimento.setVisible(false);
 		panelVestuario.setVisible(false);
 		panelInformatica.setVisible(false);
@@ -378,14 +397,14 @@ public class PanelCadastro extends JPanel {
 		});
 		// Ação de cadastrar
 		cadastrar.addActionListener(e -> {
-			
+
 			if (nome.getText().isBlank() || preco.getText().isBlank() || Double.parseDouble(preco.getText()) <= 0
 					|| (int) quantidade.getValue() <= 0 || Integer.parseInt(cod.getText()) <= 0
 					|| cod.getText().isBlank() || marca.getText().isBlank()) {
 				JOptionPane.showMessageDialog(null, "Não pode haver campos vazios ou com valores negativos");
 				return;
-			} 
-			
+			}
+
 			if (panelAlimento.isVisible() == true) {
 				/*
 				 * Para saber que a tela de cadastro de alimento está ativa foi pego a
@@ -399,7 +418,7 @@ public class PanelCadastro extends JPanel {
 					// Dados de alimento vazios
 					JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
 				} else {
-				
+
 					/*
 					 * Cadastro efetivo de um alimento no estoque, além disso é "apagado" dos
 					 * JTextFields as informações escritas
@@ -426,7 +445,7 @@ public class PanelCadastro extends JPanel {
 				/*
 				 * Checando a visibilidade dos campos que caracterizam o vestuario
 				 */
-			} 
+			}
 			if (panelVestuario.isVisible() == true) {
 				if (taman.getText().isBlank() || tec.getText().isBlank() || tec.getText().isEmpty()
 						|| taman.getText().isEmpty()) {
@@ -444,9 +463,9 @@ public class PanelCadastro extends JPanel {
 				taman.setText("");
 				JOptionPane.showMessageDialog(null, "Cadastrado o Vestuario");
 				return;
-			} 
+			}
 			if (panelLivro.isVisible() == true) {
-				
+
 				if (qtdPag.getText().isBlank() || qtdPag.getText().isEmpty() || gen.isSelectionEmpty()) {
 					JOptionPane.showMessageDialog(null, "Preencha todos os campos ou selecione nos campos vazios!");
 				} else
@@ -460,9 +479,9 @@ public class PanelCadastro extends JPanel {
 				quantidade.setValue(0);
 				gen.clearSelection();
 				qtdPag.setText("");
-			} 
+			}
 			if (panelMaq.isVisible() == true) {
-				
+
 				if (qual.isSelectionEmpty() || dur.isSelectionEmpty()) {
 					JOptionPane.showMessageDialog(null, "Selecione algo nos campos vazios!");
 				} else
@@ -478,7 +497,7 @@ public class PanelCadastro extends JPanel {
 				qual.clearSelection();
 				dur.clearSelection();
 
-			} 
+			}
 			if (panelInformatica.isVisible() == true) {
 				if (tam.getText().isBlank() || proc.getText().isBlank() || armaze.getText().isBlank()
 						|| tam.getText().isEmpty() || proc.getText().isEmpty() || armaze.getText().isEmpty()) {
@@ -498,13 +517,6 @@ public class PanelCadastro extends JPanel {
 				tam.setText("");
 			}
 		});
-	}
-	public void addTelas() {
-		cads.add(panelMaq);
-		cads.add(panelLivro);
-		cads.add(panelInformatica);
-		cads.add(panelVestuario);
-		cads.add(panelAlimento);
 	}
 	public JTextField getNome() {
 		return nome;
@@ -653,35 +665,45 @@ public class PanelCadastro extends JPanel {
 	public void setCads(List<JPanel> cads) {
 		this.cads = cads;
 	}
+
 	public JButton getAlimento() {
 		return alimento;
 	}
+
 	public void setAlimento(JButton alimento) {
 		this.alimento = alimento;
 	}
+
 	public JButton getVestuario() {
 		return vestuario;
 	}
+
 	public void setVestuario(JButton vestuario) {
 		this.vestuario = vestuario;
 	}
+
 	public JButton getInformatica() {
 		return informatica;
 	}
+
 	public void setInformatica(JButton informatica) {
 		this.informatica = informatica;
 	}
+
 	public JButton getLivro() {
 		return livro;
 	}
+
 	public void setLivro(JButton livro) {
 		this.livro = livro;
 	}
+
 	public JButton getMaquiagem() {
 		return maquiagem;
 	}
+
 	public void setMaquiagem(JButton maquiagem) {
 		this.maquiagem = maquiagem;
 	}
-	
+
 }

@@ -18,11 +18,20 @@ import model.Maquiagem;
 import model.Produto;
 import model.Vestuario;
 
+/**
+ * Classe que herda de JPanel, e utilizada na classe TelaInicial como um JPanel
+ * e fica responsavel pela funcionalidade de pesquisa de Produtos
+ * 
+ * @author Bruno Henrique Duarte
+ * @version 1.0
+ * 
+ * @see Produto
+ * @see TelaInicial
+ */
 public class PanelPesquisa extends JPanel {
 	private JLabel pes = new JLabel();
 	private ControleDados dados;
 	private JPanel searchPanel = new JPanel();
-	private String busca;
 	// Labels
 	private JLabel produto;
 	private JLabel nome;
@@ -47,6 +56,12 @@ public class PanelPesquisa extends JPanel {
 	private List<JLabel> atributos = new ArrayList<>();
 	private List<JLabel> atributosBase = new ArrayList<>();
 
+	/**
+	 * Construtor da classe, adiciona todos os componentes ao JPanel e implementa a
+	 * logica de busca, onde cria uma TextField e um botao de pesquisa.
+	 * 
+	 * @param dados Dados que serao passado pela TelaInicial
+	 */
 	public PanelPesquisa(ControleDados dados) {
 		this.dados = dados;
 		setBackground(new Color(255, 222, 173));
@@ -268,57 +283,45 @@ public class PanelPesquisa extends JPanel {
 				}
 			}
 		});
-
 		add(searchPanel);
 	}
 
-	public void atributosOff(List<JLabel> x) {
-		for (JLabel f : x) {
+	/**
+	 * Metodo que altera para falso a visibilidade de todos os JLabels contidos na
+	 * lista
+	 * 
+	 * @param listJPanel Lista que contem os Labels de dados especificos de todo
+	 *                   tipo de Produto
+	 */
+	public void atributosOff(List<JLabel> listJLabel) {
+		for (JLabel f : listJLabel) {
 			f.setVisible(false);
 		}
 	}
-
-	public boolean existeNoEstoque(List<Produto> x, String busca) {
-		for (Produto c : x) {
-			if (c.getNome().equalsIgnoreCase(busca)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public JTextField getSearchBar() {
 		return searchBar;
 	}
-
 	public void setSearchBar(JTextField searchBar) {
 		this.searchBar = searchBar;
 	}
-
 	public JButton getPesquisar() {
 		return pesquisar;
 	}
-
 	public void setPesquisar(JButton pesquisar) {
 		this.pesquisar = pesquisar;
 	}
-
 	public ControleDados getDados() {
 		return dados;
 	}
-
 	public JLabel getNome() {
 		return nome;
 	}
-
 	public void setNome(JLabel nome) {
 		this.nome = nome;
 	}
-
 	public JLabel getPreco() {
 		return preco;
 	}
-
 	public void setPreco(JLabel preco) {
 		this.preco = preco;
 	}
@@ -434,6 +437,5 @@ public class PanelPesquisa extends JPanel {
 	public void setQtdPag(JLabel qtdPag) {
 		this.qtdPag = qtdPag;
 	}
-	
-	
+
 }

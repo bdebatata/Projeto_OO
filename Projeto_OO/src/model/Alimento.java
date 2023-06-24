@@ -3,38 +3,57 @@ package model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Alimento extends Produto{
-	
+/**
+ * A classe alimento herda de Produto e serve como tipo especifico de produto.
+ * 
+ * @author Bruno Henrique Duarte
+ * @version 1.0
+ *
+ */
+public class Alimento extends Produto {
+
 	private SimpleDateFormat sdf;
 	private Date dataDeValidade;
 	private double peso;
-	
-	public Alimento(String nome, double preco, int qtd, int cod, String marca, Date dataDeValidade, double peso) {
-		super(nome, preco, qtd, cod, marca);
+
+	/**
+	 * Construtor da classe
+	 * 
+	 * @param nome Strinq que representa o nome do Produto 
+	 * @param preco double que representa o preco do Produto
+	 * @param qtd int que representa a quantidade do Produto
+	 * @param cod int que representa o codigo do Produto
+	 * @param marca String que representa a marca do Produto
+	 * @param data Date que representa a data de validade do Alimento
+	 * @param peso double que representa o peso do Alimento
+	 * 
+	 * @see Produto 
+	 */
+	public Alimento(String nome, double preco, int quantidade, int codigo, String marca, Date dataDeValidade,
+			double peso) {
+		super(nome, preco, quantidade, codigo, marca);
 		sdf = new SimpleDateFormat("dd/MM/yyyy");
 		this.dataDeValidade = dataDeValidade;
 		this.peso = peso;
 	}
-	
+
 	public Date getDataDeValidade() {
 		return dataDeValidade;
 	}
+
 	public void setDataDeValidade(Date dataDeValidade) {
 		this.dataDeValidade = dataDeValidade;
 	}
-	
+
 	public double getPeso() {
 		return peso;
 	}
+
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
+
 	public SimpleDateFormat getSdf() {
 		return sdf;
-	}
-	@Override
-	public String toString() {
-		return "Alimento: "+getNome()+ ", Data de validade: "+sdf.format(getDataDeValidade())+", Peso: "+getPeso()+"g"
-				+ "\nQuantidade: "+getQtd()+", com um preço de: R$"+getPreco() +"\nTotalizando: R$"+subTotal();
 	}
 }
