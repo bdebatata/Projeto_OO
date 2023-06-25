@@ -42,5 +42,12 @@ public class Maquiagem extends Produto {
 	public void setPigmentacao(QualidadeMaterial pigmentacao) {
 		this.pigmentacao = pigmentacao;
 	}
+	@Override
+	public String toString() {
+		if(getQtd()==0) {
+			return "Produto Indisponível!";
+		}
+		return "Produto Disponível!";
+	}
 	
 }

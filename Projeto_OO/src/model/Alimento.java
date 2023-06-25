@@ -1,6 +1,8 @@
 package model;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -55,5 +57,18 @@ public class Alimento extends Produto {
 
 	public SimpleDateFormat getSdf() {
 		return sdf;
+	}
+
+	@Override
+	public String toString() {
+		Date dataAgora = new Date();
+		
+		if(getQtd() == 0) {
+			return "Produto Indisponível!";
+		} else
+			if(dataAgora.after(dataDeValidade)) {
+				return "Alimento vencido";
+			} else 
+				return "Produto Disponível!";
 	}
 }

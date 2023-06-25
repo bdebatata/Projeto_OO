@@ -223,7 +223,6 @@ public class PanelPesquisa extends JPanel {
 				situacao.setVisible(true);
 				situacao.setText("Não encontrado!");
 			} else if (dados.pesquisa(searchBar.getText()) != null) {
-				situacao.setVisible(false);
 				Produto x = dados.pesquisa(searchBar.getText());
 				produto.setVisible(true);
 				nome.setText("Nome: " + x.getNome());
@@ -237,6 +236,7 @@ public class PanelPesquisa extends JPanel {
 				cod.setText("Código: " + x.getCod());
 				cod.setVisible(true);
 				if (x instanceof Alimento) {
+					situacao.setText(x.toString());
 					produto.setText("Tipo do produto: Alimento");
 					Alimento c = (Alimento) x;
 					peso.setText("Peso: " + c.getPeso() + "g");
@@ -245,7 +245,7 @@ public class PanelPesquisa extends JPanel {
 					data.setVisible(true);
 				}
 				if (x instanceof Informatica) {
-
+					situacao.setText(x.toString());
 					produto.setText("Tipo do produto: Informatica");
 					Informatica c = (Informatica) x;
 					processador.setText("Processador: " + c.getProcessador());
@@ -256,6 +256,7 @@ public class PanelPesquisa extends JPanel {
 					armazenamento.setVisible(true);
 				}
 				if (x instanceof Vestuario) {
+					situacao.setText(x.toString());
 					produto.setText("Tipo do produto: Vestuario");
 					Vestuario c = (Vestuario) x;
 					tecido.setText("Tecido: " + c.getMaterial());
@@ -264,7 +265,7 @@ public class PanelPesquisa extends JPanel {
 					tamanho.setVisible(true);
 				}
 				if (x instanceof Maquiagem) {
-
+					situacao.setText(x.toString());
 					produto.setText("Tipo do produto: Maquiagem");
 					Maquiagem c = (Maquiagem) x;
 					durabilidade.setText("Durabilidade: " + c.getDurabilidade());
@@ -273,7 +274,7 @@ public class PanelPesquisa extends JPanel {
 					pigmentacao.setVisible(true);
 				}
 				if (x instanceof Livro) {
-
+					situacao.setText(x.toString());
 					produto.setText("Tipo do produto: Livro");
 					Livro c = (Livro) x;
 					genero.setText("Gênero Literário: " + c.getGenero());

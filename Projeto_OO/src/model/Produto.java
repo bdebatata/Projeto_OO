@@ -72,5 +72,5 @@ public abstract class Produto {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-	//public abstract String toString();
+	public abstract String toString();
 }

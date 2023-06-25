@@ -49,6 +49,14 @@ public class Informatica extends Produto {
 	public void setProcessador(String processador) {
 		this.processador = processador;
 	}
+
+	@Override
+	public String toString() {
+		if(getQtd()==0){
+			return "Produto Indisponível!";
+		}
+		return "Produto Disponível!";
+	}
 	
 	
 	

@@ -41,5 +41,12 @@ public class Livro extends Produto{
 	public void setQtdPag(int qtdPag) {
 		this.qtdPag = qtdPag;
 	}
+	@Override
+	public String toString() {
+		if(getQtd()==0) {
+			return "Produto Indisponível!";
+		}  else
+			return "Produto Disponível!";
+	}
 	
 }

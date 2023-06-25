@@ -39,5 +39,12 @@ public class Vestuario extends Produto{
 	public void setTamanho(int tamanho) {
 		this.tamanho = tamanho;
 	}
+	@Override
+	public String toString() {
+		if(getQtd()==0) {
+			return "Produto Indisponível!";
+		}
+		return "Produto Disponível!";
+	}
 	
 }
