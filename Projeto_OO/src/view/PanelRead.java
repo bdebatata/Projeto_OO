@@ -292,9 +292,9 @@ public class PanelRead extends JPanel {
 	 * @param dados ControleDados que se obteve com o construtor da classe
 	 * @see ControleDados
 	 */
-	public void passagemDados(ControleDados x) {
+	public void passagemDados(ControleDados dados) {
 		nomesProduto.clear();
-		for (Produto p : x.getEstoque().getProdutos()) {
+		for (Produto p : dados.getEstoque().getProdutos()) {
             nomesProduto.addElement(p.getNome());
         }
 	}

@@ -64,9 +64,9 @@ public class TestePesquisa {
 	@Test
 	public void TesteProdutoExistente() throws ParseException {
 		PanelPesquisa pesq = new PanelPesquisa(new ControleDados());
-		pesq.getSearchBar().setText("Nitro 5");
+		pesq.getSearchBar().setText("Produto 1");
 		pesq.getPesquisar().doClick();
-		assertEquals("Nome: Nitro 5", pesq.getNome().getText());
+		assertEquals("Nome: Produto 1", pesq.getNome().getText());
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class TestePesquisa {
 	@Test
 	public void TesteVisibilidadeInformatica() throws ParseException {
 		PanelPesquisa pesq = new PanelPesquisa(new ControleDados());
-		pesq.getSearchBar().setText("Nitro 5");
+		pesq.getSearchBar().setText("Produto 2");
 		pesq.getPesquisar().doClick();
 		assertEquals(true, pesq.getNome().isVisible());
 		assertEquals(true, pesq.getPreco().isVisible());
@@ -101,7 +101,7 @@ public class TestePesquisa {
 	@Test
 	public void TesteVisibilidadeAlimento() throws ParseException {
 		PanelPesquisa pesq = new PanelPesquisa(new ControleDados());
-		pesq.getSearchBar().setText("Snickers");
+		pesq.getSearchBar().setText("Produto 1");
 		pesq.getPesquisar().doClick();
 		assertEquals(true, pesq.getNome().isVisible());
 		assertEquals(true, pesq.getPreco().isVisible());
@@ -122,7 +122,7 @@ public class TestePesquisa {
 	@Test
 	public void TesteVisibilidadeLivro() throws ParseException {
 		PanelPesquisa pesq = new PanelPesquisa(new ControleDados());
-		pesq.getSearchBar().setText("Ecce-Homo");
+		pesq.getSearchBar().setText("Produto 5");
 		pesq.getPesquisar().doClick();
 		assertEquals(true, pesq.getNome().isVisible());
 		assertEquals(true, pesq.getPreco().isVisible());
@@ -143,7 +143,7 @@ public class TestePesquisa {
 	@Test
 	public void TesteVisibilidadeVestuario() throws ParseException {
 		PanelPesquisa pesq = new PanelPesquisa(new ControleDados());
-		pesq.getSearchBar().setText("Jaqueta");
+		pesq.getSearchBar().setText("Produto 4");
 		pesq.getPesquisar().doClick();
 		assertEquals(true, pesq.getNome().isVisible());
 		assertEquals(true, pesq.getPreco().isVisible());
@@ -164,7 +164,7 @@ public class TestePesquisa {
 	@Test
 	public void TesteVisibilidadeMaquiagem() throws ParseException {
 		PanelPesquisa pesq = new PanelPesquisa(new ControleDados());
-		pesq.getSearchBar().setText("Linha VF");
+		pesq.getSearchBar().setText("Produto 3");
 		pesq.getPesquisar().doClick();
 		assertEquals(true, pesq.getNome().isVisible());
 		assertEquals(true, pesq.getPreco().isVisible());
@@ -183,7 +183,7 @@ public class TestePesquisa {
 	@Test
 	public void TestePesquisaMaiusculo() throws ParseException {
 		PanelPesquisa pesq = new PanelPesquisa(new ControleDados());
-		pesq.getSearchBar().setText("SNIcKerS");
+		pesq.getSearchBar().setText("pRODutO 1");
 		pesq.getPesquisar().doClick();
 		assertEquals(true, pesq.getNome().isVisible());
 		assertEquals(true, pesq.getPreco().isVisible());
