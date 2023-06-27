@@ -342,7 +342,7 @@ public class PanelUpdate extends JPanel {
 			for (Produto p : dados.getEstoque().getProdutos()) {
 				if (p.getNome() == index) {
 					nome.setText("Nome: " + p.getNome());
-					uppreco.setText("" + p.getPreco());
+					uppreco.setText("" + String.format("%.2f", p.getPreco()));
 					upquantidade.setText("" + p.getQtd());
 					upmarca.setText(p.getMarca());
 					upcod.setText("" + p.getCod());

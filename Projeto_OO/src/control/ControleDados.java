@@ -145,7 +145,7 @@ public class ControleDados {
 	 * 
 	 * @see Alimento
 	 * @see Produto
-	 * @see Estoque#removeProduto(Produto)
+	 * @see Estoque#addProduto(Produto)
 	 */
 	public void cadAlimento(String nome, double preco, int qtd, int cod, String marca, Date data, double peso) {
 		estoque.addProduto(new Alimento(nome, preco, qtd, cod, marca, data, peso));
@@ -166,7 +166,7 @@ public class ControleDados {
 	 * 
 	 * @see Informatica
 	 * @see Produto
-	 * @see Estoque#removeProduto(Produto)
+	 * @see Estoque#addProduto(Produto)
 	 */
 	public void cadInformatica(String nome, double preco, int qtd, int cod, String marca, double tamanhoDaTela,
 			int armazenamento, String processador) {
@@ -187,7 +187,7 @@ public class ControleDados {
 	 * 
 	 * @see Vestuario
 	 * @see Produto
-	 * @see Estoque#removeProduto(Produto)
+	 * @see Estoque#addProduto(Produto)
 	 */
 	public void cadVestuario(String nome, double preco, int qtd, int cod, String marca, String material, int tamanho) {
 		estoque.addProduto(new Vestuario(nome, preco, qtd, cod, marca, material, tamanho));
@@ -208,7 +208,7 @@ public class ControleDados {
 	 * @see Livro
 	 * @see Produto
 	 * @see GenLiterario
-	 * @see Estoque#removeProduto(Produto)
+	 * @see Estoque#addProduto(Produto)
 	 */
 	public void cadLivro(String nome, double preco, int qtd, int cod, String marca, GenLiterario genero, int qtdPag) {
 		estoque.addProduto(new Livro(nome, preco, qtd, cod, marca, genero, qtdPag));
@@ -230,7 +230,7 @@ public class ControleDados {
 	 * 
 	 * @see Maquiagem
 	 * @see QualidadeMaterial
-	 * @see Estoque#removeProduto(Produto)
+	 * @see Estoque#addProduto(Produto)
 	 */
 	public void cadMaquiagem(String nome, double preco, int qtd, int cod, String marca, QualidadeMaterial durabilidade,
 			QualidadeMaterial pigmentacao) {
@@ -252,6 +252,7 @@ public class ControleDados {
 	 * 
 	 * @param nome O nome do produto a ser buscado
 	 * @return caso exista no estoque retorna o Produto, caso constrário nulo
+	 * @see Estoque#busca(String)
 	 */
 	public Produto pesquisa(String nome) {
 		if (estoque.busca(nome) == null) {

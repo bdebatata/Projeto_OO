@@ -230,7 +230,7 @@ public class PanelDelete extends JPanel {
 			for (Produto p : dados.getEstoque().getProdutos()) {
 				if (p.getNome() == s) {
 					nome.setText("Nome: " + p.getNome());
-					preco.setText("Preco: R$" + p.getPreco());
+					preco.setText("Preco: R$" + String.format("%.2f", p.getPreco()));
 					quantidade.setText("Quantidade: " + p.getQtd());
 					marca.setText("Marca: " + p.getMarca());
 					cod.setText("Código: " + p.getCod());
