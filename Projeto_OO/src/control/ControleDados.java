@@ -49,7 +49,7 @@ public class ControleDados {
 				"Marca do Produto 3", qualidadeAleatoria(), qualidadeAleatoria()));
 
 		estoque.addProduto(new Vestuario("Produto 4", Math.random() * 2000, r.nextInt(101), geraCodAleatorio(),
-				"Marca do Produto 4", "Material do Vestuário", r.nextInt(21)+30));
+				"Marca do Produto 4", "Material", r.nextInt(21)+30));
 
 		estoque.addProduto(new Livro("Produto 5", Math.random() * 200, r.nextInt(101), geraCodAleatorio(),
 				"Marca do Produto 5", generoAleatorio(), r.nextInt(1500)));

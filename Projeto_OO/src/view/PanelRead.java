@@ -96,7 +96,7 @@ public class PanelRead extends JPanel {
 				nome = new JLabel();
 				nome.setText("Nome: ");
 				nome.setFont(new Font("Impact", Font.BOLD, 30));
-				nome.setBounds(50,50,300,50);
+				nome.setBounds(50,50,400,50);
 				panelDados.add(nome);
 				
 				preco = new JLabel();

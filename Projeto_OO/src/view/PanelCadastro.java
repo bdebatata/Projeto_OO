@@ -434,6 +434,7 @@ public class PanelCadastro extends JPanel {
 						nome.setText("");
 						preco.setText("");
 						cod.setText("");
+						marca.setText("");
 						quantidade.setValue(0);
 						peso.setText("");
 						data.setText("");
@@ -458,6 +459,7 @@ public class PanelCadastro extends JPanel {
 				nome.setText("");
 				preco.setText("");
 				cod.setText("");
+				marca.setText("");
 				quantidade.setValue(0);
 				tec.setText("");
 				taman.setText("");
@@ -476,6 +478,7 @@ public class PanelCadastro extends JPanel {
 				nome.setText("");
 				preco.setText("");
 				cod.setText("");
+				marca.setText("");
 				quantidade.setValue(0);
 				gen.clearSelection();
 				qtdPag.setText("");
@@ -493,6 +496,7 @@ public class PanelCadastro extends JPanel {
 				nome.setText("");
 				preco.setText("");
 				cod.setText("");
+				marca.setText("");
 				quantidade.setValue(0);
 				qual.clearSelection();
 				dur.clearSelection();
