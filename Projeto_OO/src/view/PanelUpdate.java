@@ -41,7 +41,21 @@ public class PanelUpdate extends JPanel {
 	private JPanel panelLista;
 	private JButton update = new JButton("Update");
 	private DefaultListModel<String> nomesProduto = new DefaultListModel<>();
-
+	private JTextField upcod;
+	private JTextField uppreco;
+	private JTextField upmarca;
+	private JTextField upquantidade;
+	private JTextField updata;
+	private JTextField uppeso;
+	private JTextField uptamanhoTela;
+	private JTextField upprocessador;
+	private JTextField uparmazenamento;
+	private JTextField uppigmentacao;
+	private JTextField updurabilidade;
+	private JTextField uptecido;
+	private JTextField uptamanho;
+	private JTextField upgenero;
+	private JTextField upqtdPag;
 	/**
 	 * Construtor da classe, adiciona todos os componentes ao JPanel e implementa a
 	 * logica de update utilizando de uma JList para se selecionar o produto a ser
@@ -50,7 +64,7 @@ public class PanelUpdate extends JPanel {
 	 * 
 	 * @param dados Dados que serao passado pela TelaInicial
 	 */
-	PanelUpdate(ControleDados dados) {
+	public PanelUpdate(ControleDados dados) {
 		this.dados = dados;
 		setBackground(new Color(255, 222, 173));
 		setBounds(410, 10, 1065, 793);
@@ -98,7 +112,7 @@ public class PanelUpdate extends JPanel {
 		preco.setBounds(50, 90, 300, 50);
 		panelDados.add(preco);
 
-		JTextField uppreco = new JTextField();
+		uppreco = new JTextField();
 		uppreco.setFont(new Font("Impact", Font.BOLD, 30));
 		uppreco.setBounds(150, 100, 300, 30);
 		uppreco.setVisible(false);
@@ -110,7 +124,7 @@ public class PanelUpdate extends JPanel {
 		quantidade.setBounds(50, 130, 300, 50);
 		panelDados.add(quantidade);
 
-		JTextField upquantidade = new JTextField();
+		upquantidade = new JTextField();
 		upquantidade.setFont(new Font("Impact", Font.BOLD, 30));
 		upquantidade.setBounds(220, 140, 230, 30);
 		upquantidade.setVisible(false);
@@ -122,7 +136,7 @@ public class PanelUpdate extends JPanel {
 		cod.setBounds(50, 170, 300, 50);
 		panelDados.add(cod);
 
-		JTextField upcod = new JTextField();
+		upcod = new JTextField();
 		upcod.setFont(new Font("Impact", Font.BOLD, 30));
 		upcod.setBounds(155, 180, 295, 30);
 		upcod.setVisible(false);
@@ -134,7 +148,7 @@ public class PanelUpdate extends JPanel {
 		marca.setBounds(50, 210, 500, 50);
 		panelDados.add(marca);
 
-		JTextField upmarca = new JTextField();
+		upmarca = new JTextField();
 		upmarca.setFont(new Font("Impact", Font.BOLD, 30));
 		upmarca.setVisible(false);
 		upmarca.setBounds(155, 220, 295, 30);
@@ -148,7 +162,7 @@ public class PanelUpdate extends JPanel {
 		data.setVisible(false);
 		panelDados.add(data);
 
-		JTextField updata = new JTextField();
+		updata = new JTextField();
 		updata.setFont(new Font("Impact", Font.BOLD, 30));
 		updata.setBounds(155, 260, 300, 30);
 		panelDados.add(updata);
@@ -161,7 +175,7 @@ public class PanelUpdate extends JPanel {
 		peso.setVisible(false);
 		panelDados.add(peso);
 
-		JTextField uppeso = new JTextField();
+		uppeso = new JTextField();
 		uppeso.setFont(new Font("Impact", Font.BOLD, 30));
 		uppeso.setBounds(155, 300, 300, 30);
 		uppeso.setVisible(false);
@@ -175,7 +189,7 @@ public class PanelUpdate extends JPanel {
 		tamanhoTela.setVisible(false);
 		panelDados.add(tamanhoTela);
 
-		JTextField uptamanhoTela = new JTextField();
+		uptamanhoTela = new JTextField();
 		uptamanhoTela.setFont(new Font("Impact", Font.BOLD, 30));
 		uptamanhoTela.setBounds(280, 260, 170, 30);
 		uptamanhoTela.setVisible(false);
@@ -188,7 +202,7 @@ public class PanelUpdate extends JPanel {
 		armazenamento.setVisible(false);
 		panelDados.add(armazenamento);
 
-		JTextField uparmazenamento = new JTextField();
+		uparmazenamento = new JTextField();
 		uparmazenamento.setFont(new Font("Impact", Font.BOLD, 30));
 		uparmazenamento.setBounds(280, 300, 170, 30);
 		uparmazenamento.setVisible(false);
@@ -201,7 +215,7 @@ public class PanelUpdate extends JPanel {
 		processador.setVisible(false);
 		panelDados.add(processador);
 
-		JTextField upprocessador = new JTextField();
+		upprocessador = new JTextField();
 		upprocessador.setFont(new Font("Impact", Font.BOLD, 30));
 		upprocessador.setBounds(230, 340, 220, 30);
 		upprocessador.setVisible(false);
@@ -215,7 +229,7 @@ public class PanelUpdate extends JPanel {
 		durabilidade.setVisible(false);
 		panelDados.add(durabilidade);
 
-		JTextField updurabilidade = new JTextField();
+		updurabilidade = new JTextField();
 		updurabilidade.setFont(new Font("Impact", Font.BOLD, 30));
 		updurabilidade.setBounds(250, 260, 200, 30);
 		updurabilidade.setVisible(false);
@@ -228,7 +242,7 @@ public class PanelUpdate extends JPanel {
 		pigmentacao.setVisible(false);
 		panelDados.add(pigmentacao);
 
-		JTextField uppigmentacao = new JTextField();
+		uppigmentacao = new JTextField();
 		uppigmentacao.setFont(new Font("Impact", Font.BOLD, 30));
 		uppigmentacao.setBounds(250, 300, 200, 30);
 		uppigmentacao.setVisible(false);
@@ -242,7 +256,7 @@ public class PanelUpdate extends JPanel {
 		tecido.setVisible(false);
 		panelDados.add(tecido);
 
-		JTextField uptecido = new JTextField();
+		uptecido = new JTextField();
 		uptecido.setFont(new Font("Impact", Font.BOLD, 30));
 		uptecido.setBounds(280, 260, 170, 30);
 		uptecido.setVisible(false);
@@ -255,7 +269,7 @@ public class PanelUpdate extends JPanel {
 		tamanho.setVisible(false);
 		panelDados.add(tamanho);
 
-		JTextField uptamanho = new JTextField();
+		uptamanho = new JTextField();
 		uptamanho.setFont(new Font("Impact", Font.BOLD, 30));
 		uptamanho.setBounds(190, 300, 260, 30);
 		uptamanho.setVisible(false);
@@ -269,7 +283,7 @@ public class PanelUpdate extends JPanel {
 		genero.setVisible(false);
 		panelDados.add(genero);
 
-		JTextField upgenero = new JTextField();
+		upgenero = new JTextField();
 		upgenero.setFont(new Font("Impact", Font.BOLD, 30));
 		upgenero.setBounds(280, 260, 170, 30);
 		upgenero.setVisible(false);
@@ -282,7 +296,7 @@ public class PanelUpdate extends JPanel {
 		qtdPag.setVisible(false);
 		panelDados.add(qtdPag);
 
-		JTextField upqtdPag = new JTextField();
+		upqtdPag = new JTextField();
 		upqtdPag.setText("Quantidade de páginas: ");
 		upqtdPag.setFont(new Font("Impact", Font.BOLD, 30));
 		upqtdPag.setBounds(370, 300, 80, 30);
@@ -434,9 +448,9 @@ public class PanelUpdate extends JPanel {
 					 * está interagindo
 					 */
 					update.addActionListener(f -> {
-						if (upmarca.getText().isBlank() || uppreco.getText().isBlank() || upcod.getText().isBlank()
-								|| upquantidade.getText().isBlank()) {
-							JOptionPane.showMessageDialog(null, "Não pode haver campos vazios");
+						if (upmarca.getText().isBlank() || uppreco.getText().isBlank()  || upcod.getText().isBlank()
+								|| upquantidade.getText().isBlank() || Integer.parseInt(upquantidade.getText())<=0 || Integer.parseInt(upcod.getText())<=0) {
+							JOptionPane.showMessageDialog(null, "Não pode haver campos vazios ou negativos");
 						} else
 							// Caso de verificação onde os dados básicos foram alterados
 							for (Produto x : dados.getEstoque().getProdutos()) {
@@ -503,7 +517,7 @@ public class PanelUpdate extends JPanel {
 										 * com o valor disponibilizado pela field
 										 */
 										if (Double.parseDouble(uptamanhoTela.getText()) != a.getTamanhoDaTela()) {
-											a.setTamanhoDaTela(Double.parseDouble(uppeso.getText()));
+											a.setTamanhoDaTela(Double.parseDouble(uptamanhoTela.getText()));
 										}
 										if (upprocessador.getText() != a.getProcessador()) {
 											a.setProcessador(upprocessador.getText());
@@ -626,7 +640,170 @@ public class PanelUpdate extends JPanel {
 		for (Produto p : x.getEstoque().getProdutos()) {
 			nomesProduto.addElement(p.getNome());
 		}
-
 	}
+	public JLabel getRead() {
+		return read;
+	}
+
+	public void setRead(JLabel read) {
+		this.read = read;
+	}
+
+	public JList<String> getLista() {
+		return lista;
+	}
+
+	public void setLista(JList<String> lista) {
+		this.lista = lista;
+	}
+
+	public JPanel getPanelLista() {
+		return panelLista;
+	}
+
+	public void setPanelLista(JPanel panelLista) {
+		this.panelLista = panelLista;
+	}
+
+	public JButton getUpdate() {
+		return update;
+	}
+
+	public void setUpdate(JButton update) {
+		this.update = update;
+	}
+
+	public DefaultListModel<String> getNomesProduto() {
+		return nomesProduto;
+	}
+
+	public void setNomesProduto(DefaultListModel<String> nomesProduto) {
+		this.nomesProduto = nomesProduto;
+	}
+
+	public JTextField getUpcod() {
+		return upcod;
+	}
+
+	public void setUpcod(JTextField upcod) {
+		this.upcod = upcod;
+	}
+
+	public JTextField getUppreco() {
+		return uppreco;
+	}
+
+	public void setUppreco(JTextField uppreco) {
+		this.uppreco = uppreco;
+	}
+
+	public JTextField getUpmarca() {
+		return upmarca;
+	}
+
+	public void setUpmarca(JTextField upmarca) {
+		this.upmarca = upmarca;
+	}
+
+	public JTextField getUpquantidade() {
+		return upquantidade;
+	}
+
+	public void setUpquantidade(JTextField upquantidade) {
+		this.upquantidade = upquantidade;
+	}
+
+	public JTextField getUpdata() {
+		return updata;
+	}
+
+	public void setUpdata(JTextField updata) {
+		this.updata = updata;
+	}
+
+	public JTextField getUppeso() {
+		return uppeso;
+	}
+
+	public void setUppeso(JTextField uppeso) {
+		this.uppeso = uppeso;
+	}
+
+	public JTextField getUptamanhoTela() {
+		return uptamanhoTela;
+	}
+
+	public void setUptamanhoTela(JTextField uptamanhoTela) {
+		this.uptamanhoTela = uptamanhoTela;
+	}
+
+	public JTextField getUpprocessador() {
+		return upprocessador;
+	}
+
+	public void setUpprocessador(JTextField upprocessador) {
+		this.upprocessador = upprocessador;
+	}
+
+	public JTextField getUparmazenamento() {
+		return uparmazenamento;
+	}
+
+	public void setUparmazenamento(JTextField uparmazenamento) {
+		this.uparmazenamento = uparmazenamento;
+	}
+
+	public JTextField getUppigmentacao() {
+		return uppigmentacao;
+	}
+
+	public void setUppigmentacao(JTextField uppigmentacao) {
+		this.uppigmentacao = uppigmentacao;
+	}
+
+	public JTextField getUpdurabilidade() {
+		return updurabilidade;
+	}
+
+	public void setUpdurabilidade(JTextField updurabilidade) {
+		this.updurabilidade = updurabilidade;
+	}
+
+	public JTextField getUptecido() {
+		return uptecido;
+	}
+
+	public void setUptecido(JTextField uptecido) {
+		this.uptecido = uptecido;
+	}
+
+	public JTextField getUptamanho() {
+		return uptamanho;
+	}
+
+	public void setUptamanho(JTextField uptamanho) {
+		this.uptamanho = uptamanho;
+	}
+
+	public JTextField getUpgenero() {
+		return upgenero;
+	}
+
+	public void setUpgenero(JTextField upgenero) {
+		this.upgenero = upgenero;
+	}
+
+	public JTextField getUpqtdPag() {
+		return upqtdPag;
+	}
+
+	public void setUpqtdPag(JTextField upqtdPag) {
+		this.upqtdPag = upqtdPag;
+	}
+
+	public void setDados(ControleDados dados) {
+		this.dados = dados;
+	}
+	
 
 }

@@ -36,13 +36,29 @@ public class PanelRead extends JPanel {
 	private ControleDados dados;
 	private JList<String> lista;
 	private DefaultListModel<String> nomesProduto = new DefaultListModel<>();
+	private JLabel nome;
+	private JLabel preco;
+	private JLabel marca;
+	private JLabel cod;
+	private JLabel quantidade;
+	private JLabel peso;
+	private JLabel data;
+	private JLabel tamanhoTela;
+	private JLabel armazenamento;
+	private JLabel processador;
+	private JLabel durabilidade;
+	private JLabel pigmentacao;
+	private JLabel tecido;
+	private JLabel tamanho;
+	private JLabel genero;
+	private JLabel qtdPag;
 	/**
 	 * Construtor da classe, adiciona todos os componentes ao JPanel e implementa
 	 * a logica de mostrar todos os dados de um selecionado Produto, onde e utilizado um JList
 	 * com todos os nomes de Produtos cadastrados.
 	 * @param dados Dados que serao passados pela TelaInicial
 	 */
-	PanelRead(ControleDados dados){
+	public PanelRead(ControleDados dados){
 		this.dados = dados;
 		setBackground(new Color(255, 222, 173));
 		setBounds(410, 10, 1065, 793);
@@ -77,45 +93,45 @@ public class PanelRead extends JPanel {
 				titulo.setFont(new Font("Impact", Font.BOLD, 30));
 				panelDados.add(titulo);
 				// Dados básicos de cada produto
-				JLabel nome = new JLabel();
+				nome = new JLabel();
 				nome.setText("Nome: ");
 				nome.setFont(new Font("Impact", Font.BOLD, 30));
 				nome.setBounds(50,50,300,50);
 				panelDados.add(nome);
 				
-				JLabel preco = new JLabel();
+				preco = new JLabel();
 				preco.setText("Preço: ");
 				preco.setFont(new Font("Impact", Font.BOLD, 30));
 				preco.setBounds(50,90,300,50);
 				panelDados.add(preco);
 				
-				JLabel quantidade = new JLabel();
+				quantidade = new JLabel();
 				quantidade.setText("Quantidade: ");
 				quantidade.setFont(new Font("Impact", Font.BOLD, 30));
 				quantidade.setBounds(50,130,300,50);
 				panelDados.add(quantidade);
 				
-				JLabel cod = new JLabel();
+				cod = new JLabel();
 				cod.setText("Código: ");
 				cod.setFont(new Font("Impact", Font.BOLD, 30));
 				cod.setBounds(50,170,300,50);
 				panelDados.add(cod);
 				
-				JLabel marca = new JLabel();
+				marca = new JLabel();
 				marca.setText("Marca: ");
 				marca.setFont(new Font("Impact", Font.BOLD, 30));
 				marca.setBounds(50,210,500,50);
 				panelDados.add(marca);
 				// Labels especificas de cada tipo de produto
 				// Alimento
-				JLabel data = new JLabel();
+				data = new JLabel();
 				data.setText("Data: ");
 				data.setFont(new Font("Impact", Font.BOLD, 30));
 				data.setBounds(50,250,500,50);
 				data.setVisible(false);
 				panelDados.add(data);
 				
-				JLabel peso = new JLabel();
+				peso = new JLabel();
 				peso.setText("Peso: ");
 				peso.setFont(new Font("Impact", Font.BOLD, 30));
 				peso.setBounds(50,290,500,50);
@@ -123,21 +139,21 @@ public class PanelRead extends JPanel {
 				panelDados.add(peso);
 				
 				// Informatica
-				JLabel tamanhoTela = new JLabel();
+				tamanhoTela = new JLabel();
 				tamanhoTela.setText("Tamanho da tela: ");
 				tamanhoTela.setFont(new Font("Impact", Font.BOLD, 30));
 				tamanhoTela.setBounds(50,250,500,50);
 				tamanhoTela.setVisible(false);
 				panelDados.add(tamanhoTela);
 				
-				JLabel armazenamento = new JLabel();
+				armazenamento = new JLabel();
 				armazenamento.setText("Armazenamento: ");
 				armazenamento.setFont(new Font("Impact", Font.BOLD, 30));
 				armazenamento.setBounds(50,290,500,50);
 				armazenamento.setVisible(false);
 				panelDados.add(armazenamento);
 				
-				JLabel processador = new JLabel();
+				processador = new JLabel();
 				processador.setText("processador: ");
 				processador.setFont(new Font("Impact", Font.BOLD, 30));
 				processador.setBounds(50,330,500,50);
@@ -145,14 +161,14 @@ public class PanelRead extends JPanel {
 				panelDados.add(processador);
 				
 				// Maquiagem
-				JLabel durabilidade = new JLabel();
+				durabilidade = new JLabel();
 				durabilidade.setText("Durabilidade: ");
 				durabilidade.setFont(new Font("Impact", Font.BOLD, 30));
 				durabilidade.setBounds(50,250,500,50);
 				durabilidade.setVisible(false);
 				panelDados.add(durabilidade);
 				
-				JLabel pigmentacao = new JLabel();
+				pigmentacao = new JLabel();
 				pigmentacao.setText("Pigmentação: ");
 				pigmentacao.setFont(new Font("Impact", Font.BOLD, 30));
 				pigmentacao.setBounds(50,290,500,50);
@@ -160,14 +176,14 @@ public class PanelRead extends JPanel {
 				panelDados.add(pigmentacao);
 				
 				// Vestuário
-				JLabel tecido = new JLabel();
+				tecido = new JLabel();
 				tecido.setText("Tecido/Material: ");
 				tecido.setFont(new Font("Impact", Font.BOLD, 30));
 				tecido.setBounds(50,250,500,50);
 				tecido.setVisible(false);
 				panelDados.add(tecido);
 				
-				JLabel tamanho = new JLabel();
+				tamanho = new JLabel();
 				tamanho.setText("Tamanho: ");
 				tamanho.setFont(new Font("Impact", Font.BOLD, 30));
 				tamanho.setBounds(50,290,500,50);
@@ -175,14 +191,14 @@ public class PanelRead extends JPanel {
 				panelDados.add(tamanho);
 				
 				// Livro 
-				JLabel genero = new JLabel();
+				genero = new JLabel();
 				genero.setText("Gênero Literário: ");
 				genero.setFont(new Font("Impact", Font.BOLD, 30));
 				genero.setBounds(50,250,500,50);
 				genero.setVisible(false);
 				panelDados.add(genero);
 				
-				JLabel qtdPag = new JLabel();
+				qtdPag = new JLabel();
 				qtdPag.setText("Quantidade de páginas: ");
 				qtdPag.setFont(new Font("Impact", Font.BOLD, 30));
 				qtdPag.setBounds(50,290,500,50);
@@ -298,4 +314,165 @@ public class PanelRead extends JPanel {
             nomesProduto.addElement(p.getNome());
         }
 	}
+	
+	public JLabel getRead() {
+		return read;
+	}
+
+	public void setRead(JLabel read) {
+		this.read = read;
+	}
+
+	public ControleDados getDados() {
+		return dados;
+	}
+
+	public void setDados(ControleDados dados) {
+		this.dados = dados;
+	}
+
+	public JList<String> getLista() {
+		return lista;
+	}
+
+	public void setLista(JList<String> lista) {
+		this.lista = lista;
+	}
+
+	public DefaultListModel<String> getNomesProduto() {
+		return nomesProduto;
+	}
+
+	public void setNomesProduto(DefaultListModel<String> nomesProduto) {
+		this.nomesProduto = nomesProduto;
+	}
+
+	public JLabel getNome() {
+		return nome;
+	}
+
+	public void setNome(JLabel nome) {
+		this.nome = nome;
+	}
+
+	public JLabel getPreco() {
+		return preco;
+	}
+
+	public void setPreco(JLabel preco) {
+		this.preco = preco;
+	}
+
+	public JLabel getMarca() {
+		return marca;
+	}
+
+	public void setMarca(JLabel marca) {
+		this.marca = marca;
+	}
+
+	public JLabel getCod() {
+		return cod;
+	}
+
+	public void setCod(JLabel cod) {
+		this.cod = cod;
+	}
+
+	public JLabel getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(JLabel quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public JLabel getPeso() {
+		return peso;
+	}
+
+	public void setPeso(JLabel peso) {
+		this.peso = peso;
+	}
+
+	public JLabel getData() {
+		return data;
+	}
+
+	public void setData(JLabel data) {
+		this.data = data;
+	}
+
+	public JLabel getTamanhoTela() {
+		return tamanhoTela;
+	}
+
+	public void setTamanhoTela(JLabel tamanhoTela) {
+		this.tamanhoTela = tamanhoTela;
+	}
+
+	public JLabel getArmazenamento() {
+		return armazenamento;
+	}
+
+	public void setArmazenamento(JLabel armazenamento) {
+		this.armazenamento = armazenamento;
+	}
+
+	public JLabel getProcessador() {
+		return processador;
+	}
+
+	public void setProcessador(JLabel processador) {
+		this.processador = processador;
+	}
+
+	public JLabel getDurabilidade() {
+		return durabilidade;
+	}
+
+	public void setDurabilidade(JLabel durabilidade) {
+		this.durabilidade = durabilidade;
+	}
+
+	public JLabel getPigmentacao() {
+		return pigmentacao;
+	}
+
+	public void setPigmentacao(JLabel pigmentacao) {
+		this.pigmentacao = pigmentacao;
+	}
+
+	public JLabel getTecido() {
+		return tecido;
+	}
+
+	public void setTecido(JLabel tecido) {
+		this.tecido = tecido;
+	}
+
+	public JLabel getTamanho() {
+		return tamanho;
+	}
+
+	public void setTamanho(JLabel tamanho) {
+		this.tamanho = tamanho;
+	}
+
+	public JLabel getGenero() {
+		return genero;
+	}
+
+	public void setGenero(JLabel genero) {
+		this.genero = genero;
+	}
+
+	public JLabel getQtdPag() {
+		return qtdPag;
+	}
+
+	public void setQtdPag(JLabel qtdPag) {
+		this.qtdPag = qtdPag;
+	}
+	
 }
